@@ -1,2 +1,23 @@
-<h1>Castles#index</h1>
-<p>Find me in app/views/castles/index.html.erb</p>
+<h1>一覧</h1>
+
+<table>
+  <tr>
+    <th>城名</th>
+    <th>お城トップ画像</th>
+    <th>お城画像</th>
+    <th>城コメント</th>
+    <th>所属県</th>
+    <th>お城情報</th>
+    <th>主な城主</th>
+    <th>公式ホームページ</th>
+    <th>所在地</th>
+    <th>アクセス</th>
+    <th>沿革</th>
+
+  </tr>
+  <% @castles.each do |castle| %>
+  <tr>
+    <td><%= castle.ca_name %></td>
+  </tr>
+  <% end %>
+</table>

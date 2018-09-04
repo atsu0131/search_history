@@ -1,2 +1,63 @@
-<h1>Castles#new</h1>
-<p>Find me in app/views/castles/new.html.erb</p>
+
+<p>城情報登録（管理者用）</p>
+
+<%= form_with(model: @castle) do |form| %>
+
+<div class="castle_ca_name">
+  <%= form.label :ca_name,'城名：' %>
+  <%= form.text_field :ca_name %>
+</div>
+
+<div class="ca_top_image">
+  <%= form.label :ca_top_image,'お城トップ画像：' %>
+  <%= form.text_field :ca_top_image %>
+</div>
+
+<div class="ca_image">
+  <%= form.label :ca_image,'お城画像：' %>
+  <%= form.text_field :ca_image %>
+</div>
+
+<div class="ca_comment">
+  <%= form.label :ca_comment,'城コメント：' %>
+  <%= form.text_field :ca_comment %>
+</div>
+
+<div class="ca_pref">
+  <%= form.label :ca_pref,'所属県：' %>
+  <%= form.text_field :ca_pref %>
+</div>
+
+<div class="ca_info">
+  <%= form.label :ca_info,'お城情報：' %>
+  <%= form.text_field :ca_info %>
+</div>
+
+<div class="ca_owner">
+  <%= form.label :ca_owner,'主な城主：' %>
+  <%= form.text_field :ca_owner %>
+</div>
+
+<div class="ca_hp">
+  <%= form.label :ca_hp,'公式ホームページ：' %>
+  <%= form.text_field :ca_hp %>
+</div>
+
+<div class="ca_loca">
+  <%= form.label :ca_loca,'所在地：' %>
+  <%= form.text_field :ca_loca %>
+</div>
+
+<div class="ca_access">
+  <%= form.label :ca_access,'アクセス：' %>
+  <%= form.text_field :ca_access %>
+</div>
+
+<div class="ca_history">
+  <%= form.label :ca_history,'沿革：' %>
+  <%= form.text_field :ca_history %>
+</div>
+
+
+<%= form.submit("送信") %>
+<% end %>
