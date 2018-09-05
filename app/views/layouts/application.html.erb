@@ -25,9 +25,13 @@
 
 		<div class="collapse navbar-collapse" id="navbarEexample3">
 			<ul class="nav navbar-nav">
-				<li><a href="#">メニューＡ</a></li>
-				<li class="active"><a href="#">メニューＢ</a></li>
-				<li><a href="#">メニューＣ</a></li>
+        <% if logged_in? %>
+          <li><%= link_to "Profile", user_path(current_user.id) %></li>
+          <li><%= link_to "Logout", session_path(current_user.id), method: :delete %></li>
+        <% else %>
+          <li><%= link_to "Sign up", new_user_path %></li>
+          <li><%= link_to "Login", new_session_path %></li>
+        <% end %>
 			</ul>
 			<form class="navbar-form navbar-left" role="search">
 				<div class="form-group">
@@ -38,6 +42,9 @@
 		</div>
 	</div>
 </nav>
-    <%= yield %>
-  </body>
+<body>
+
+
+   <%= yield %>
+ </body>
 </html>
