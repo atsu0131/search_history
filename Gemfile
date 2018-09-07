@@ -52,6 +52,8 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
+  gem 'carrierwave'
+  gem 'mini_magick'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

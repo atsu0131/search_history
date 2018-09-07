@@ -1,0 +1,2 @@
+module SikokusHelper
+end

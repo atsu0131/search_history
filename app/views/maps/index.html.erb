@@ -31,7 +31,39 @@
           fontColor : "areaColor",
           fontShadowColor : "black",
           onSelect:function(data){
-              alert(data.name);
+            number = data.code
+            switch (number) {
+              case 1:
+                window.location.href =  '/hokkaidos/index';
+              break;
+              case 2:
+                window.location.href =  '/touhokus/index';
+              break;
+              case 3:
+                window.location.href =  '/kantous/index';
+              break;
+              case 4:
+                window.location.href =  '/tyuubus/index';
+              break;
+              case 5:
+                window.location.href =  '/kinkis/index';
+              break;
+              case 6:
+                window.location.href =  '/tyuugokus/index';
+              break;
+              case 7:
+                window.location.href =  '/sikokus/index';
+              break;
+              case 8:
+                window.location.href =  '/kyuusyuus/index';
+              break;
+              case 9:
+                window.location.href =  '/okinawas/index';
+              break;
+              default:
+              alert("地域を選択してください")
+                break;
+              }
             }
         });
     });

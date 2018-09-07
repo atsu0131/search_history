@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Japan Map - EXAMPLE 1</title>
+    <script src="/path/to/jquery.min.js"></script>
+    <script src="/path/to/jquery.japan-map.min.js"></script>
+    <script>
+    $(function(){
+        var areas = [
+            {code : 3, name: "関東地方",   color: "#7ecfea", hoverColor: "#b7e5f4", prefectures: [8,9,10,11,12,13,14]},
+
+        ];
+
+        $("#map-container_pre").japanMap({
+          areas  : areas,
+          selection : "area",
+          showsAreaName : true,
+          width: 300,
+          font : "MS Mincho",
+          fontSize : 12,
+          fontColor : "areaColor",
+          fontShadowColor : "black",
+          onSelect:function(data){
+              alert(data.name);
+            }
+        });
+    });
+    </script>
+</head>
+<body>
+<h1>関東地方</h1>
+
+<div id="map-container_pre"></div>
+<table>
+  <tr>
+    <th>城名</th>
+
+  </tr>
+  <% @castles.each do |castle| %>
+  <tr>
+    <td><%= castle.ca_name %></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><%= link_to '詳細', castle_path(castle.id) %></td>
+  </tr>
+  <% end %>
+</table>
+</body>
+</html>
