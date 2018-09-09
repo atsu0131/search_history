@@ -2,35 +2,42 @@
 <html>
 <head>
     <title>Japan Map - EXAMPLE 1</title>
-    <script src="/path/to/jquery.min.js"></script>
-    <script src="/path/to/jquery.japan-map.min.js"></script>
-    <script>
-    $(function(){
-        var areas = [
-            {code : 3, name: "関東地方",   color: "#7ecfea", hoverColor: "#b7e5f4", prefectures: [8,9,10,11,12,13,14]},
 
-        ];
 
-        $("#map-container_pre").japanMap({
-          areas  : areas,
-          selection : "area",
-          showsAreaName : true,
-          width: 300,
-          font : "MS Mincho",
-          fontSize : 12,
-          fontColor : "areaColor",
-          fontShadowColor : "black",
-          onSelect:function(data){
-              alert(data.name);
-            }
-        });
-    });
-    </script>
+      <style>
+       /* Set the size of the div element that contains the map */
+      #map {
+        height: 400px;  /* The height is 400 pixels */
+        width: 50%;  /* The width is the width of the web page */
+       }
+      </style>
 </head>
 <body>
 <h1>関東地方</h1>
 
 <div id="map-container_pre"></div>
+
+    <!--The div element for the map -->
+    <div id="map"></div>
+    <script>
+// Initialize and add the map
+function initMap() {
+  // The location of Uluru
+  var uluru = {lat: 35.656565, lng: 139.694648};
+  // The map, centered at Uluru
+  var map = new google.maps.Map(
+      document.getElementById('map'), {zoom: 8, center: uluru});
+  // The marker, positioned at Uluru
+}
+    </script>
+    <!--Load the API from the specified URL
+    * The async attribute allows the browser to render the page while the API loads
+    * The key parameter will contain your own API key (which is not needed for this tutorial)
+    * The callback parameter executes the initMap() function
+    -->
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCaD1BBqOInNQvYAVuEMe5DdsoQh-cnRrA&callback=initMap">
+    </script>
 <table>
   <tr>
     <th>城名</th>
@@ -42,7 +49,7 @@
     <td></td>
   </tr>
   <tr>
-    <td><%= link_to '詳細', castle_path(castle.id) %></td>
+    <td><%= link_to '詳細', castle_path(castle.id)  %></td>
   </tr>
   <% end %>
 </table>

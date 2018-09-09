@@ -1,5 +1,5 @@
 class KantousController < ApplicationController
   def index
-    @castles = Castle.all
+    @castles = Castle.where("map_id = '3'")
   end
 end

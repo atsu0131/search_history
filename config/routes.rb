@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'toppages/index'
+
   get 'okinawas/index'
 
   get 'kyuusyuus/index'

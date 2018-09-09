@@ -1,6 +1,6 @@
 class MapsController < ApplicationController
   def index
-    @castles = Castle.all
+    @maps = Map.all
   end
 
   def show
