@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+
+  root to: 'toppages#index'
+
+  get 'comments/create'
+
   get 'toppages/index'
 
   get 'okinawas/index'
@@ -26,7 +31,13 @@ Rails.application.routes.draw do
   get 'maps/index'
   get 'maps/:id', to: 'maps#show', as: 'map'
 
-  resources :castles
+  resources :castles do
+    resources :comments
+      collection do
+      post :confirm
+      end
+  end
+
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
 

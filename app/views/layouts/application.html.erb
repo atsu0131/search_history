@@ -18,7 +18,7 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="#">
+			<a class="navbar-brand" href="/toppages/index">
 				レキ探
 			</a>
 		</div>
@@ -26,6 +26,7 @@
 		<div class="collapse navbar-collapse" id="navbarEexample3">
 			<ul class="nav navbar-nav">
         <% if logged_in? %>
+          <li><%= link_to "maps", maps_index_path %></li>
           <li><%= link_to "Profile", user_path(current_user.id) %></li>
           <li><%= link_to "Logout", session_path(current_user.id), method: :delete %></li>
         <% else %>

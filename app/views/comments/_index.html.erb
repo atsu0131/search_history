@@ -1,0 +1,13 @@
+<ul>
+  <% comments.each do |comment| %>
+    <% if comment.id.present? %>
+
+        <p><%= image_tag (comment.image), :size => '400x300' if comment.image.present? %></p>
+        <p><%= comment.content %></p>
+        <td><%= link_to '編集', edit_castle_comment_path(castle.id,comment.id) %></td>
+        <td><%= link_to '削除', castle_comment_path(castle.id,comment.id), method: :delete, data: { confirm: '本当に削除していいですか？' }  %></td>
+
+      </li>
+    <% end %>
+  <% end %>
+</ul>

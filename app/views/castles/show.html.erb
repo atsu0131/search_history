@@ -1,32 +1,19 @@
-<h1>詳細画面</h1>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
-<canvas id="myRadar" style="width: 100%; height: 300px;"></canvas>
-<script>
-    var myRadarElement = document.getElementById("myRadar");
-    var myRadar = new Chart(myRadarElement, {
-        type: 'radar', // チャートのタイプ
-        data: { // チャートの内容
-            labels: ["one", "two", "three", "four", "five", "six"],
-            datasets: [{
-                label: 'red',
-                lineTension: 0, // ベジェ曲線を無効化
-                data: [12, 19, 3, 5, 2, 3],
-                backgroundColor: 'RGBA(182,39,93, 0.4)',
-                borderColor: 'RGBA(182,39,93, 1)',
-                borderWidth: 1,
-                pointBackgroundColor: 'RGB(46,106,177)'
-            }, {
-                label: 'green',
-                data: [10, 14, 6, 8, 1, 4],
-                backgroundColor: 'RGBA(77,169,155, 0.4)',
-                borderColor: 'RGBA(77,169,155, 1)',
-                borderWidth: 1,
-                pointBackgroundColor: 'RGB(46,106,177)'
-            }]
-        },
-        options: { // チャートのその他オプション
-            // 設定なし
-        }
-    });
-</script>
+<h2> <%= @castle.ca_name %></h2>
+<p>情報: <%= @castle.ca_info %></p>
+  <%= image_tag @castle.ca_top_image , :size => '400x300' %>
+
+
+
+
+  <p>コメント一覧</p>
+  <div id="comments_area">
+  <!-- 投稿されたコメント一覧をブログの詳細ページに表示するためのrender -->
+    <%= render partial: 'comments/index', locals: { comments: @comments, castle: @castle } %>
+  </div>
+
+  <!-- コメント入力欄をブログの詳細ページに表示するためのrender -->
+  <%= render partial: 'comments/form', locals: { comment: @comment, castle: @castle } %>
+
+  <%= link_to '戻る', maps_index_path %>
+</div>

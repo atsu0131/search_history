@@ -58,6 +58,11 @@
   <%= form.text_field :ca_history %>
 </div>
 
+<div class="ca_history">
+  <%= form.label :map_id,'地域ID：' %>
+  <%= form.number_field :map_id %>
+  <div>1:北海道、2:東北、3:関東、4:中部、5:近畿、6:中国、7:四国、8:九州、9:沖縄</div>
+</div>
 
 <%= form.submit("送信") %>
 <% end %>

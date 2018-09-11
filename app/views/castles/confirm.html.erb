@@ -1,0 +1,39 @@
+<h3>以下の内容で、送信する。</h3>
+
+<%= form_with(model: @castle, url: castles_path, local: true) do |form| %>
+  <%= form.hidden_field :ca_name %>
+  <%= image_tag(@castle.ca_top_image) %>
+  <%= form.hidden_field :ca_top_image %>
+  <%= form.hidden_field :ca_top_image_cache %>
+  <%= image_tag(@castle.ca_image) %>
+  <%= form.hidden_field :ca_image %>
+  <%= form.hidden_field :ca_image_cache %>
+  <%= form.hidden_field :ca_comment %>
+  <%= form.hidden_field :ca_pref %>
+  <%= form.hidden_field :ca_info %>
+  <%= form.hidden_field :ca_owner %>
+  <%= form.hidden_field :ca_hp %>
+  <%= form.hidden_field :ca_loca %>
+  <%= form.hidden_field :ca_access %>
+  <%= form.hidden_field :ca_history %>
+  <%= form.hidden_field :map_id %>
+
+  <p><%= @castle.ca_name %></p>
+  <p><%= @castle.ca_top_image %></p>
+  <p><%= @castle.ca_image %></p>
+  <p><%= @castle.ca_comment %></p>
+  <p><%= @castle.ca_pref %></p>
+  <p><%= @castle.ca_info %></p>
+  <p><%= @castle.ca_owner %></p>
+  <p><%= @castle.ca_hp %></p>
+  <p><%= @castle.ca_loca %></p>
+  <p><%= @castle.ca_access %></p>
+  <p><%= @castle.ca_history %></p>
+  <p><%= @castle.map_id %></p>
+
+
+  <%= form.submit  "登録する" %>
+<% end %>
+
+<%= link_to '戻る', :back %>
+
