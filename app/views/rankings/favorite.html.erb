@@ -1,9 +1,12 @@
+<h2>お気に入りランキング</h2>
+
 <% if @castles.present? %>
   <div class="row">
     <% @castles.each_with_index do |castle, index| %>
 
             <div class="panel-footer">
-              <p class="text-center"><%= index+1 %>位: <%= castle.ca_name %> <%= @ranking_counts[castle.id]%>件</p>
+              <p class="text-center"><%= index+1 %>位: <%= link_to castle.ca_name , castle_path(castle)  %></p>
+              <p class="text-center">お気に入り件数：<%= @ranking_counts[castle.id]%>件</p>
             </div>
           </div>
         </div>
