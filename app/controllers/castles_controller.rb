@@ -8,9 +8,9 @@ class CastlesController < ApplicationController
   end
 
   def create
-    Castle.create(params_set)
+    @castle = Castle.new(params_set)
     @castle.user_id = current_user.id
-    if @castle.save
+    if @castle.save!
       redirect_to castles_path, notice: "作成しました！"
     else
       render 'new'
@@ -21,6 +21,7 @@ class CastlesController < ApplicationController
     @castle = Castle.find(params[:id])
     @comments = @castle.comments
     @comment = @castle.comments.build
+    @favorite = current_user.favorites.find_by(castle_id: @castle.id)
   end
 
   def edit
@@ -51,6 +52,6 @@ class CastlesController < ApplicationController
 
 
   def params_set
-    params.require(:castle).permit(:ca_name,:ca_top_image,:ca_image,:ca_comment,:ca_pref,:ca_info,:ca_owner,:ca_hp,:ca_loca,:ca_access,:ca_history,:map_id,:ca_top_image_cache, :ca_image_cache)
+    params.require(:castle).permit(:ca_name,:ca_top_image,:ca_image,:ca_comment,:ca_pref,:ca_info,:ca_owner,:ca_hp,:ca_loca,:ca_access,:ca_history,:map_id,:ca_top_image_cache, :ca_image_cache,:user_id)
   end
 end

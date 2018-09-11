@@ -4,6 +4,13 @@
   <%= image_tag @castle.ca_top_image , :size => '400x300' %>
 
 
+  <% if @favorite.present? %>
+    <div class="favorite"><%= link_to 'お気に入り解除する', favorite_path(id: @favorite.id), method: :delete, class: 'btn btn-danger' %></div>
+  <% else %>
+    <div class="favorite"><%= link_to 'お気に入りする', favorites_path(castle_id: @castle.id), method: :post, class: 'btn btn-primary' %></div>
+  <% end %>
+
+
 
 
   <p>コメント一覧</p>
