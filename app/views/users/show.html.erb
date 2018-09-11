@@ -1,3 +1,8 @@
 <h1><%= @user.name %>のページ</h1>
 
 <p>メールアドレス: <%= @user.email %></p>
+
+<p>お気に入り一覧</p>
+<% @favorites_castles.each do |favorite| %>
+<p><%= link_to favorite.ca_name , castle_path(favorite) %></p>
+<% end %>

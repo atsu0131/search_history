@@ -1,0 +1,13 @@
+<% if @castles.present? %>
+  <div class="row">
+    <% @castles.each_with_index do |castle, index| %>
+
+            <div class="panel-footer">
+              <p class="text-center"><%= index+1 %>位: <%= castle.ca_name %> <%= @ranking_counts[castle.id]%>件</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>

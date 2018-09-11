@@ -45,8 +45,9 @@ class CastlesController < ApplicationController
 
   def confirm
     @castle = Castle.new(params_set)
-
   end
+
+
 
   private
 

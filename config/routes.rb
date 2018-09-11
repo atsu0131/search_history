@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'rankings/favorite'
+
   root to: 'toppages#index'
 
   get 'comments/create'
@@ -30,6 +32,8 @@ Rails.application.routes.draw do
 
   get 'maps/index'
   get 'maps/:id', to: 'maps#show', as: 'map'
+
+  get 'rankings/favorite', to: 'rankings#favorite'
 
   resources :castles do
     resources :comments

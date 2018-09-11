@@ -5,9 +5,7 @@ class FavoritesController < ApplicationController
   end
 
   def destroy
-
     favorite = current_user.favorites.find_by(id: params[:id]).destroy
-
     redirect_to   maps_index_path, notice: "お気に入り解除しました"
   end
 end
