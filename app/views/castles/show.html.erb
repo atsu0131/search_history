@@ -1,7 +1,9 @@
 
 <h2> <%= @castle.ca_name %></h2>
+  <p>お気に入り件数：<%= @ranking_counts[@castle.id]%>件</p>
 <p>情報: <%= @castle.ca_info %></p>
   <%= image_tag @castle.ca_top_image , :size => '400x300' %>
+
 
   <% if @favorite.present? %>
     <div class="favorite"><%= link_to 'お気に入り解除する', favorite_path(id: @favorite.id), method: :delete, class: 'btn btn-danger' %></div>

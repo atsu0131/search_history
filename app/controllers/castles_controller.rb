@@ -22,6 +22,7 @@ class CastlesController < ApplicationController
     @comments = @castle.comments
     @comment = @castle.comments.build
     @favorite = current_user.favorites.find_by(castle_id: @castle.id)
+    @ranking_counts = Favorite.ranking
   end
 
   def edit
