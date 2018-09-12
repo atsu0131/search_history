@@ -29,7 +29,7 @@
           <li><%= link_to "maps", maps_index_path %></li>
           <li><%= link_to "ranking", rankings_favorite_path %></li>
           <li><%= link_to "Profile", user_path(current_user.id) %></li>
-          <li><%= link_to "Logout", new_user_path, method: :delete %></li>
+          <li><%= link_to "Logout", session_path(current_user.id), method: :delete %></li>
         <% else %>
           <li><%= link_to "Sign up", new_user_path %></li>
           <li><%= link_to "Login", new_session_path %></li>
