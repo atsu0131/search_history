@@ -1,35 +1,94 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Japan Map - EXAMPLE 1</title>
-    <script src="/path/to/jquery.min.js"></script>
-    <script src="/path/to/jquery.japan-map.min.js"></script>
-    <script>
-    $(function(){
-        var areas = [
-            {code : 1, name: "北海道地方", color: "#7f7eda", hoverColor: "#b3b2ee", prefectures: [1]},
+    <title>Japan Map</title>
 
-        ];
 
-        $("#map-container_pre").japanMap({
-          areas  : areas,
-          selection : "area",
-          showsAreaName : true,
-          width: 300,
-          font : "MS Mincho",
-          fontSize : 12,
-          fontColor : "areaColor",
-          fontShadowColor : "black",
-          onSelect:function(data){
-              alert(data.name);
-            }
-        });
-    });
-    </script>
+      <style>
+       /* Set the size of the div element that contains the map */
+      #map {
+        height: 400px;  /* The height is 400 pixels */
+        width: 50%;  /* The width is the width of the web page */
+        margin-left:40px;
+       }
+      </style>
 </head>
 <body>
 <h1>北海道地方</h1>
 
 <div id="map-container_pre"></div>
+
+    <!--The div element for the map -->
+    <div id="map"></div>
+    <script>
+// Initialize and add the map
+function initMap() {
+  // The location of Uluru
+  var uluru = {lat: 43.395191, lng: 142.650291};
+  // The map, centered at Uluru
+  var map = new google.maps.Map(
+      document.getElementById('map'), {zoom: 8, center: uluru});
+  // The marker, positioned at Uluru
+}
+    </script>
+    <!--Load the API from the specified URL
+    * The async attribute allows the browser to render the page while the API loads
+    * The key parameter will contain your own API key (which is not needed for this tutorial)
+    * The callback parameter executes the initMap() function
+    -->
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCaD1BBqOInNQvYAVuEMe5DdsoQh-cnRrA&callback=initMap">
+    </script>
+
+        <ul class="tab">
+              <li class="select">城</li>
+              <li>神社</li>
+              <li>旧跡</li>
+              <li>その他</li>
+    </ul>
+    <ul class="content">
+      <li>
+        <table>
+          <tr>
+            <th>城名</th>
+          </tr>
+          <% @castles.each do |castle| %>
+          <tr>
+            <td><%= castle.ca_name %></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td><%= link_to '詳細', castle_path(castle.id)  %></td>
+          </tr>
+          <% end %>
+        </table>
+      </li>
+      <li class="hide">
+        <br>
+        <h3>coming soon</h3>
+      </li>
+      <li class="hide">
+        <br>
+        <h3>coming soon</h3>
+      </li>
+       <li class="hide">
+        <br>
+        <h3>coming soon</h3>
+      </li>
+    </ul>
+
+    <script>
+$(function() {
+  $('.tab li').click(function() {
+    $('.tab li').removeClass('select');
+　　 $(this).addClass('select');
+　　 $('.content li').addClass('hide');
+    const index = $('.tab li').index($(this))
+    $('.content li').eq(index).removeClass('hide');
+  });
+});
+    </script>
+
+
 </body>
 </html>

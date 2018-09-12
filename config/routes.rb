@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'articles/index'
+
   get 'rankings/favorite'
 
   root to: 'toppages#index'

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Japan Map - EXAMPLE 1</title>
+    <title>Japan Map</title>
 
 
       <style>
@@ -9,6 +9,7 @@
       #map {
         height: 400px;  /* The height is 400 pixels */
         width: 50%;  /* The width is the width of the web page */
+        margin-left:40px;
        }
       </style>
 </head>
@@ -38,20 +39,56 @@ function initMap() {
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCaD1BBqOInNQvYAVuEMe5DdsoQh-cnRrA&callback=initMap">
     </script>
-<table>
-  <tr>
-    <th>城名</th>
 
-  </tr>
-  <% @castles.each do |castle| %>
-  <tr>
-    <td><%= castle.ca_name %></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td><%= link_to '詳細', castle_path(castle.id)  %></td>
-  </tr>
-  <% end %>
-</table>
+        <ul class="tab">
+              <li class="select">城</li>
+              <li>神社</li>
+              <li>旧跡</li>
+              <li>その他</li>
+    </ul>
+    <ul class="content">
+      <li>
+        <table>
+          <tr>
+            <th>城名</th>
+          </tr>
+          <% @castles.each do |castle| %>
+          <tr>
+            <td><%= castle.ca_name %></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td><%= link_to '詳細', castle_path(castle.id)  %></td>
+          </tr>
+          <% end %>
+        </table>
+      </li>
+      <li class="hide">
+        <br>
+        <h3>coming soon</h3>
+      </li>
+      <li class="hide">
+        <br>
+        <h3>coming soon</h3>
+      </li>
+       <li class="hide">
+        <br>
+        <h3>coming soon</h3>
+      </li>
+    </ul>
+
+    <script>
+$(function() {
+  $('.tab li').click(function() {
+    $('.tab li').removeClass('select');
+　　 $(this).addClass('select');
+　　 $('.content li').addClass('hide');
+    const index = $('.tab li').index($(this))
+    $('.content li').eq(index).removeClass('hide');
+  });
+});
+    </script>
+
+
 </body>
 </html>

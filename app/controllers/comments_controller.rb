@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
-  def create
+        before_action :require_user_logged_in,{only:[:index,:new,:show,:edit]}
 
+  def create
     @castle = Castle.find(params[:castle_id])
     @comment = @castle.comments.build(comment_params)
 
