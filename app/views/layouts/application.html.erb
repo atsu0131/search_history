@@ -35,12 +35,17 @@
           <li><%= link_to "Login", new_session_path %></li>
         <% end %>
 			</ul>
-			<form class="navbar-form navbar-left" role="search">
+<!-- 			<form class="navbar-form navbar-left" role="search">
 				<div class="form-group">
 					<input type="text" class="form-control" placeholder="検索キーワード">
 				</div>
 				<button type="submit" class="btn btn-default">検索</button>
-			</form>
+			</form> -->
+      <% if admin_logged_in? %>
+      <ul class="nav navbar-nav">
+        <li><%= link_to "管理者用", castles_path , class: "kanri"%></li>
+      </ul>
+      <% end %>
 		</div>
 	</div>
 </nav>
