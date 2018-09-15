@@ -3,70 +3,70 @@
 
 <%= form_with(model: @castle, local: true, url:confirm_castles_path ) do |form| %>
 
-<div class="castle_ca_name">
-  <%= form.label :ca_name,'城名：' %>
-  <%= form.text_field :ca_name %>
-</div>
+  <div class="castle_ca_name">
+    <%= form.label :ca_name,'城名：' %>
+    <%= form.text_field :ca_name %>
+  </div>
 
-<div class="ca_top_image">
-  <%= form.label :ca_top_image,'お城トップ画像：' %>
-  <%= image_tag(@castle.ca_top_image.url) if @castle.ca_top_image.url %>
-  <%= form.file_field :ca_top_image %>
-</div>
+  <div class="ca_top_image">
+    <%= form.label :ca_top_image,'お城トップ画像：' %>
+    <%= image_tag(@castle.ca_top_image.url) if @castle.ca_top_image.url %>
+    <%= form.file_field :ca_top_image %>
+  </div>
 
-<div class="ca_image">
-  <%= form.label :ca_image,'お城画像：' %>
-  <%= image_tag(@castle.ca_image.url) if @castle.ca_image.url %>
-  <%= form.file_field :ca_image %>
-</div>
+  <div class="ca_image">
+    <%= form.label :ca_image,'お城画像：' %>
+    <%= image_tag(@castle.ca_image.url) if @castle.ca_image.url %>
+    <%= form.file_field :ca_image %>
+  </div>
 
-<div class="ca_comment">
-  <%= form.label :ca_comment,'城コメント：' %>
-  <%= form.text_field :ca_comment %>
-</div>
+  <div class="ca_comment">
+    <%= form.label :ca_comment,'城コメント：' %>
+    <%= form.text_field :ca_comment %>
+  </div>
 
-<div class="ca_pref">
-  <%= form.label :ca_pref,'所属県：' %>
-  <%= form.text_field :ca_pref %>
-</div>
+  <div class="ca_pref">
+    <%= form.label :ca_pref,'所属県：' %>
+    <%= form.text_field :ca_pref %>
+  </div>
 
-<div class="ca_info">
-  <%= form.label :ca_info,'お城情報：' %>
-  <%= form.text_field :ca_info %>
-</div>
+  <div class="ca_info">
+    <%= form.label :ca_info,'お城情報：' %>
+    <%= form.text_field :ca_info %>
+  </div>
 
-<div class="ca_owner">
-  <%= form.label :ca_owner,'主な城主：' %>
-  <%= form.text_field :ca_owner %>
-</div>
+  <div class="ca_owner">
+    <%= form.label :ca_owner,'主な城主：' %>
+    <%= form.text_field :ca_owner %>
+  </div>
 
-<div class="ca_hp">
-  <%= form.label :ca_hp,'公式ホームページ：' %>
-  <%= form.text_field :ca_hp %>
-</div>
+  <div class="ca_hp">
+    <%= form.label :ca_hp,'公式ホームページ：' %>
+    <%= form.text_field :ca_hp %>
+  </div>
 
-<div class="ca_loca">
-  <%= form.label :ca_loca,'所在地：' %>
-  <%= form.text_field :ca_loca %>
-</div>
+  <div class="ca_loca">
+    <%= form.label :ca_loca,'所在地：' %>
+    <%= form.text_field :ca_loca %>
+  </div>
 
-<div class="ca_access">
-  <%= form.label :ca_access,'アクセス：' %>
-  <%= form.text_field :ca_access %>
-</div>
+  <div class="ca_access">
+    <%= form.label :ca_access,'アクセス：' %>
+    <%= form.text_field :ca_access %>
+  </div>
 
-<div class="ca_history">
-  <%= form.label :ca_history,'沿革：' %>
-  <%= form.text_field :ca_history %>
-</div>
+  <div class="ca_history">
+    <%= form.label :ca_history,'沿革：' %>
+    <%= form.text_field :ca_history %>
+  </div>
 
-<div class="ca_history">
-  <%= form.label :map_id,'＊必須　地域ID：' %>
-  <%= form.number_field :map_id %>
-  <div>1:北海道、2:東北、3:関東、4:中部、5:近畿、6:中国、7:四国、8:九州、9:沖縄</div>
-</div>
+  <div class="ca_history">
+    <%= form.label :map_id,'＊必須　地域ID：' %>
+    <%= form.number_field :map_id %>
+    <div>1:北海道、2:東北、3:関東、4:中部、5:近畿、6:中国、7:四国、8:九州、9:沖縄</div>
+  </div>
 
-<%= form.submit("送信") %>
+  <%= form.submit("送信") %>
 <% end %>
 
 <p><%= link_to '一覧へ戻る', castles_path %></p>

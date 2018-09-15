@@ -1,5 +1,5 @@
 class KyuusyuusController < ApplicationController
-  @castles = Castle.where("map_id = '8'")
   def index
+    @castles = Castle.where("map_id = '8'")
   end
 end
