@@ -4,9 +4,11 @@
 
         <p><%= image_tag (comment.image), :size => '400x300' if comment.image.present? %></p>
         <p><%= comment.content %></p>
+        <li>
+        <% if comment.user_id == current_user.id %>
         <td><%= link_to '編集', edit_castle_comment_path(castle.id,comment.id) %></td>
         <td><%= link_to '削除', castle_comment_path(castle.id,comment.id), method: :delete, data: { confirm: '本当に削除していいですか？' }  %></td>
-
+        <% end %>
       </li>
     <% end %>
   <% end %>

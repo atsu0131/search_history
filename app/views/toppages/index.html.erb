@@ -1,5 +1,28 @@
 
+<h1 class="top_title">歴タン</h1>
+<h4 class="top_title">国内のさまざなお城を探すことができます</h4>
+<ul class="slider">
+  <li><%= image_tag 'kakegawa.jpg'%></li>
+  <li><%= image_tag 'himeji.jpg'%></li>
+  <li><%= image_tag 'hamamatsu.jpg'%></li>
+  <li><%= image_tag 'nagoya.jpg'%></li>
+  <li><%= image_tag 'kakegawa.jpg'%></li>
+  <li><%= image_tag 'inuyama.jpg'%></li>
+  <li><%= image_tag 'matsumoto.jpg'%></li>
+  <li><%= image_tag 'hikone.jpg'%></li>
+</ul>
 
-<%= image_tag 'kakegawa.jpg'%>
+<script>
+  $('.slider').slick({
+    autoplay:true,
+    autoplaySpeed:5000,
+    dots:true,
+    slidesToShow:2,
+    slidesToScroll:2
+  });
+</script>
 
-<div class="search_map"><%= link_to '地図検索を行う', maps_index_path %></div>
+<div class="button_hide">
+  <button type="button" class="btn btn-primary btn-lg"><%= link_to '地図検索を行う', maps_index_path, :style=>"color:white;"%>
+  </button>
+</div>

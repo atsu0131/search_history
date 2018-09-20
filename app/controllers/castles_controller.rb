@@ -1,6 +1,7 @@
 class CastlesController < ApplicationController
   before_action :require_user_logged_in,{only:[:index,:new,:show,:edit]}
   def index
+    @user = User.all
     @castles = Castle.all
   end
   def new

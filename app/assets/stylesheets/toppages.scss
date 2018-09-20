@@ -1,3 +1,37 @@
+.slider{
+    margin: 100px auto;
+    width: 80%;
+}
+.slider img{
+    height: 300px;
+    width: 100%;
+}
+/*slick setting*/
+.slick-prev:before,
+.slick-next:before {
+    color: #000;
+}
+
+.top_title h1{
+  text-align: center;
+}
+
+.top_title h4{
+  text-align: center;
+}
+
+button{
+  margin-top: 50px;
+  margin-left: 550px;
+}
+
+.button_hide{
+  height: 150px;
+  width: 100%;
+  background-color: gray;
+}
+
+
 // Place all the styles related to the toppages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
