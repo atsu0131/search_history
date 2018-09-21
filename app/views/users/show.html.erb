@@ -13,46 +13,46 @@
 <p><%= link_to "編集する",edit_user_path(@user) %></p>
 
 
-
-<p>お気に入り一覧</p>
-<% @favorites_castles.each do |favorite| %>
-<p><%= link_to favorite.ca_name , castle_path(favorite) %></p>
-<% end %>
-
-<p>訪れた城一覧</p>
-<% @visits_castles.each do |visit| %>
-<p><%= link_to visit.ca_name , castle_path(visit) %></p>
-<% end %>
-
-
-<p>画像投稿数</p>
-<%= @user.comments.select(:image).count %>
-<p>コメント投稿数</p>
-<%= @user.comments.select(:content).count %>
-<p>お気に入り数</p>
-<%= @user.favorites.count %>
-<p>訪れた城数</p>
-<%= @user.visits.count %>
-
 <p>ユーザーランク</p>
 <% num = @user.comments.select(:image).count + @user.comments.select(:content).count + @user.favorites.count +
 @user.visits.count%>
 <p><%= num %>点</p>
 <% if num <= 5 %>
 <p>足軽</p>
-<p>次のランクまで<%= 10 - num %>点必要</p>
+<p>次のランクまで<%= 5 - num %>点必要</p>
 <% elsif num <= 10 %>
 <p>侍大将</p>
-<p>次のランクまで<%= 20 - num %>点必要</p>
+<p>次のランクまで<%= 10 - num %>点必要</p>
 <% elsif num <= 20 %>
 <p>武将</p>
+<p>次のランクまで<%= 20 - num %>点必要</p>
 <% elsif num <= 30 %>
 <p>城主</p>
+<p>次のランクまで<%= 30 - num %>点必要</p>
 <% elsif num <= 40 %>
+<p>次のランクまで<%= 40 - num %>点必要</p>
 <p>大名</p>
-<% elsif num <= 50 %>
+<% elsif num > 40 %>
 <p>天下人</p>
 <% end %>
+
+
+<table class="table table-condensed">
+<tr class="table-dark">
+<th>画像投稿数</th>
+<th>コメント投稿数</th>
+<th>お気に入り数</th>
+<th>訪れた城数</th>
+</tr>
+<tr>
+  <td><%= @user.comments.select(:image).count %></td>
+  <td><%= @user.comments.select(:content).count %></td>
+  <td><%= @user.favorites.count %></td>
+  <td><%= @user.visits.count %></td>
+</tr>
+</table>
+
+
 
 <% image_ave = @comments.select(:image).count/@users.count %>
 <% content_ave = @comments.select(:content).count/@users.count %>
@@ -79,3 +79,13 @@ var myChart = new Chart(ctx, {
   }
 });
 </script>
+
+<p>お気に入り一覧</p>
+<% @favorites_castles.each do |favorite| %>
+<p><%= link_to favorite.ca_name , castle_path(favorite) %></p>
+<% end %>
+
+<p>訪れた城一覧</p>
+<% @visits_castles.each do |visit| %>
+<p><%= link_to visit.ca_name , castle_path(visit) %></p>
+<% end %>

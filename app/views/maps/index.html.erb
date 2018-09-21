@@ -78,20 +78,56 @@
     <div class="prefe">調べたい地域をクリックしてください</div>
     <div id="map-container">
       <div class="display">
-        <table>
-        <ul>
-          <div class="td">北海道</div>
-          <td>東北</td>
-          <td>関東</td>
-          <button id="button">aa</button>
+<ul class="tab">
+              <li class="select">北海道</li>
+              <li>東北</li>
+              <li>関東</li>
+              <li>中部</li>
+              <li>近畿</li>
+              <li>中国</li>
+              <li>四国</li>
+              <li>九州</li>
+              <li>沖縄</li>
+    </ul>
+    <ul class="content_blue">
+      <li>
+        <%= image_tag 'hokkaido.jpg', :size => "250x250",:class => "image_hokkaido"%>
+        室町時代には、渡島半島南端（後の和人地）に和人、渡党、アイヌが居住し、豪族が館を構えていた。室町・戦国期には本土から和人の渡海者が増え、現地のアイヌとの間に対立が起きたという。近世以前の北海道に関しては松前藩の由緒を記した『新羅之記録』（寛永20年（1643年）成立）があり、同書に拠れば康正3年/長禄元年（1457年）に起きたコシャマインの戦いで、代々蝦夷地の南部に支配権を築いた（松前藩）。
+        <div class="hokkaido"><%= link_to "北海道一覧へ",hokkaidos_index_path, class:"btn btn-primary btn-lg active" %></div>
+        </li>
+          <li class="hide">
+            <%= image_tag 'touhoku.jpg', :size => "250x250",:class => "image_hokkaido"%>
+          鎌倉時代以降は、政権のある鎌倉からは陸奥国の方が近くなり、また、鎌倉と出羽国とは船での繋がりをもてなかったために出羽の沿岸国としての意味合いが薄れ、奥羽両国を一括して「奥州」とするようになった。
+奥州（東北地方）は、近畿地方の諸政権（平氏政権、室町幕府、豊臣政権）が支配した時代には、政権所在地からは遠いため、半独立的な政治勢力が生まれていた。しかし、関東地方の諸政権（鎌倉幕府、江戸幕府、明治政府）には近いため、政権への従属的傾向が強くなる。
+        <div class="touhoku"><%= link_to "東北一覧へ",touhokus_index_path, class:"btn btn-primary btn-lg active" %></div>
+        </li>
+              <li class="hide">
+            16世紀後期には小田原北条氏の勢力圏は関東地方の西半分をはじめ広範な地域におよび、それに対して東部地域では里見氏、佐竹氏、宇都宮氏がこれに抗し領土を守った。最終的に朝廷の意向を受けた豊臣秀吉が鎮圧に乗り出し、小田原征伐によって小田原北条氏は滅亡、同氏に従っていた千葉氏・小山氏などの旧家も運命をともにした。小田原北条氏の旧領には徳川氏が入り、後にそれがそのまま江戸幕府の勢力基盤として継承された
+            <div class="kantou"><%= link_to "関東一覧へ",kantous_index_path, class:"btn btn-primary btn-lg active" %></div>
+        </li>
+              <li class="hide">
+                関東と畿内との間の「廊下」として、鎌倉時代以降に権力者から重視された。かつて源義朝は京都での内部抗争の末に、伊豆国の蛭ヶ小島に流刑された。後に頼朝が鎌倉幕府を開くと、富士川以東は鎌倉幕府の領土となった。
+戦国時代になり戦国大名が濫立すると、東海道は権力争いの場となった。中でも尾張国と西三河の2地域からは、織田信長、豊臣秀吉、徳川家康といった「三英傑」を輩出した。また駿府（静岡）は、今川義元と徳川家康の本拠地となった。
+江戸時代になると、江戸（東京）と京都を結ぶ東海道五十三次が整備され、その往来は日本第一の規模となった。この東海道沿線の中には、宿場町や城下町から発達した都市も多い。
 
-        </ul>
-        </table>
-        <script>
-$('button').click(function() {
-  $('td').fadeIn(3000);
+        </li>
+    </ul>
+    <script>
+      $(function() {
+  $('.tab li').click(function() {
+
+    $('.tab li').removeClass('select');
+
+　　 $(this).addClass('select');
+
+　　 $('.content_blue li').addClass('hide');
+
+    const index = $('.tab li').index($(this))
+    // クラス`hide`を取り除く
+    $('.content_blue li').eq(index).removeClass('hide');
+  });
 });
-        </script>
+</script>
 
       </div>
     </div>
