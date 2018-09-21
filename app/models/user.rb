@@ -13,4 +13,6 @@ class User < ApplicationRecord
 
       has_many :comments, dependent: :destroy
 
+  has_many :visits, dependent: :destroy
+  has_many :visit_castles, through: :visits, source: :castle
 end

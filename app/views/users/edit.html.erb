@@ -1,0 +1,35 @@
+
+  <%= form_with(model: @user, local: true) do |f| %>
+
+　　<div class="user">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    </div>
+
+    <div class="user">
+    <%= f.label :email %>
+    <%= f.email_field :email %>
+    </div>
+
+    <div class="user">
+    <%= f.label :age %>
+    <%= f.text_field :age, in: 18...100 %>
+    </div>
+
+
+
+    <div class="user">
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+    </div>
+
+    <div class="user">
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation %>
+    </div>
+
+    <div class="user">
+    <%= f.submit "Create my account" %>
+    </div>
+
+  <% end %>

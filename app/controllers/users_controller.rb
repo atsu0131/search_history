@@ -13,6 +13,15 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @favorites_castles = @user.favorite_castles
+    @visits_castles = @user.visit_castles
+    @comments = Comment.all
+    @users = User.all
+    @favorites = Favorite.all
+    @visits = Visit.all
+  end
+
+  def edit
+    @user = User.find(params[:id])
   end
 
 private

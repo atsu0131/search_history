@@ -11,6 +11,11 @@
     <div class="favorite"><%= link_to 'お気に入りする', favorites_path(castle_id: @castle.id), method: :post, class: 'btn btn-primary' %></div>
   <% end %>
 
+  <% if @visit.present? %>
+    <%= link_to '攻略済', visit_path(id: @visit.id), method: :delete, class: 'btn btn-danger' %>
+  <% else %>
+    <%= link_to 'まだ訪れていない', visits_path(castle_id: @castle.id), method: :post, class: 'btn btn-primary' %>
+  <% end %>
 
 
 
