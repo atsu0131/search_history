@@ -36,7 +36,7 @@
 <p>天下人</p>
 <% end %>
 
-
+<div class="comment">
 <table class="table table-condensed">
 <tr class="table-dark">
 <th>画像投稿数</th>
@@ -51,6 +51,7 @@
   <td><%= @user.visits.count %></td>
 </tr>
 </table>
+</div>
 
 
 
@@ -58,6 +59,7 @@
 <% content_ave = @comments.select(:content).count/@users.count %>
 <% favorite_ave = @favorites.count/@users.count %>
 <% visit_ave = @visits.count/@users.count %>
+
 
 <script>
 var ctx = document.getElementById("myChart");
@@ -80,12 +82,20 @@ var myChart = new Chart(ctx, {
 });
 </script>
 
-<p>お気に入り一覧</p>
-<% @favorites_castles.each do |favorite| %>
-<p><%= link_to favorite.ca_name , castle_path(favorite) %></p>
-<% end %>
 
-<p>訪れた城一覧</p>
-<% @visits_castles.each do |visit| %>
-<p><%= link_to visit.ca_name , castle_path(visit) %></p>
+<p>お気に入り一覧</p>
+<div class="favorite">
+<% @favorites_castles.each do |favorite| %>
+<div class="kakomi-tape1 col-md-4"><%= link_to favorite.ca_name , castle_path(favorite) %></div>
 <% end %>
+</div>
+<br>
+<br>
+<div>
+<div class="visit_castle"><p>訪れた城一覧</p></div>
+</div>
+<div class="visit">
+<% @visits_castles.each do |visit| %>
+<div class="kakomi-tape1 col-md-4"><%= link_to visit.ca_name , castle_path(visit) %></div>
+<% end %>
+</div>

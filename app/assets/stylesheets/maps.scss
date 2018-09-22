@@ -2,6 +2,66 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.comment{
+  height: 300px;
+  width: 80%;
+}
+
+.favorite{
+  height: 200px;
+  width: 100%;
+}
+
+.visit{
+  height: auto;
+  width: 100%;
+}
+
+/*　テープ　枠　1 */
+.kakomi-tape1 {
+ position: relative;
+ margin: 3em auto;
+ padding: 35px 20px 15px 20px;
+ width: 30%; /*ボックス幅*/
+ color: #555555; /* 文字色 */
+ background-color: #E6E6FA; /*背景色*/
+ box-shadow: 0 2px 2px #ccc; /* 影 */
+}
+.kakomi-tape1::before {
+ position: absolute;
+ top: -1.5em;
+ left: 35%;
+ height: 40px;
+ width: 160px; /*テープの幅*/
+ content: "";
+ border: 1px solid #ccc; /*枠太さ・色*/
+ background-color: #FFF; /*テープ色*/
+ opacity: 0.3; /*テープ透明度0～1*/
+ transform: rotate( -5deg ); /*テープ角度*/
+}
+
+/* ふんわり　枠　3 */
+.kakomi-kage3 {
+ position: relative;
+ margin: 2em auto;
+ padding: 0em 1em .5em;
+ width: 30%;
+ background-color: #badcad; /* 背景色 */
+ color: #555; /* 文字色 */
+ box-shadow: 0 0 10px 10px #badcad; /* 影 */
+}
+.title-kage3 {
+ position: absolute;
+ left: 10px;
+ top: 2px;
+ padding: 0 .5em;
+ font-weight: bold;
+ color: #769164; /* タイトル色 */
+ border-style: none none solid;
+ border-color: #d6e9ca; /*タイトル下線 */
+ border-width: 3px;
+}
+
 #map-container_pre{
   float: right;
   margin-right: 20px
