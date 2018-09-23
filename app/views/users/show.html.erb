@@ -17,19 +17,19 @@
 <% num = @user.comments.select(:image).count + @user.comments.select(:content).count + @user.favorites.count +
 @user.visits.count%>
 <p><%= num %>点</p>
-<% if num <= 5 %>
+<% if num < 5 %>
 <p>足軽</p>
 <p>次のランクまで<%= 5 - num %>点必要</p>
-<% elsif num <= 10 %>
+<% elsif num < 10 %>
 <p>侍大将</p>
 <p>次のランクまで<%= 10 - num %>点必要</p>
-<% elsif num <= 20 %>
+<% elsif num < 20 %>
 <p>武将</p>
 <p>次のランクまで<%= 20 - num %>点必要</p>
-<% elsif num <= 30 %>
+<% elsif num < 30 %>
 <p>城主</p>
 <p>次のランクまで<%= 30 - num %>点必要</p>
-<% elsif num <= 40 %>
+<% elsif num < 40 %>
 <p>次のランクまで<%= 40 - num %>点必要</p>
 <p>大名</p>
 <% elsif num > 40 %>

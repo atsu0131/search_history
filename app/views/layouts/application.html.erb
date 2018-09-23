@@ -9,7 +9,7 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-default">
+    <nav class="navbar-default">
 	<div class="container-fluid">
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarEexample3">
@@ -44,8 +44,13 @@
       <% unless admin_logged_in? %>
       <ul class="nav navbar-nav">
         <li><%= link_to "管理者用", castles_path , class: "kanri"%></li>
-      </ul>
+        </ul>
       <% end %>
+      <ul class="nav navbar-nav">
+        <li><%= link_to 'allusers', users_path if logged_in? %></li>
+      </ul>
+
+
 		</div>
 	</div>
 </nav>

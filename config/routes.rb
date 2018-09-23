@@ -1,10 +1,17 @@
 Rails.application.routes.draw do
+  root to: 'toppages#index'
+
+  get 'relationships/create'
+
+  get 'relationships/destroy'
+
+  get 'users/index'
 
   get 'articles/index'
 
   get 'rankings/favorite'
 
-  root to: 'toppages#index'
+
 
   get 'comments/create'
 
@@ -49,6 +56,13 @@ Rails.application.routes.draw do
 
   resources :favorites, only: [:create, :destroy]
   resources :visits, only: [:create, :destroy]
+
+  resources :relationships, only: [:create, :destroy]
+
+  resources :conversations do
+    resources :messages
+  end
+
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

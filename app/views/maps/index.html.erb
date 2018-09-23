@@ -76,6 +76,7 @@
 
     <h1>日本地図</h1>
     <div class="prefe">調べたい地域をクリックしてください</div>
+    <div class="fadein">
     <div id="map-container">
       <div class="display">
 <ul class="tab">
@@ -134,7 +135,12 @@
             <div class="tyuubu"><%= link_to "沖縄一覧へ",okinawas_index_path, class:"btn btn-primary btn-lg active" %></div>
         </li>
     </ul>
+  </div>
     <script>
+$(document).ready(function() {
+ $('.fadein').fadeIn(2000);
+});
+
       $(function() {
   $('.tab li').click(function() {
 

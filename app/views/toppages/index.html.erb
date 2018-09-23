@@ -1,6 +1,18 @@
+<div class="back">
+<span class="top_title"><br><h1>歴タン</h1></span>
+<span class="top_title"><h4>国内のさまざまなお城を探すことができます</h4></span>
 
-<h1 class="top_title">歴タン</h1>
-<h4 class="top_title">国内のさまざなお城を探すことができます</h4>
+</div>
+
+
+<div class="button_hide">
+<!--   <div class="fadein"> -->
+    <button type="button" class="btn btn-primary btn-lg "><%= link_to '地図検索を行う', maps_index_path, :style=>"color:white;"%>
+    </button>
+<!--   </div> -->
+</div>
+
+
 <ul class="slider">
   <li><%= image_tag 'kakegawa.jpg'%></li>
   <li><%= image_tag 'himeji.jpg'%></li>
@@ -13,6 +25,20 @@
 </ul>
 
 <script>
+
+$(function(){
+    $(window).scroll(function (){
+        $('.fadein').each(function(){
+            var elemPos = $(this).offset().top;
+            var scroll = $(window).scrollTop();
+            var windowHeight = $(window).height();
+            if (scroll > elemPos - windowHeight + 200){
+                $(this).addClass('scrollin');
+            }
+        });
+    });
+});
+
   $('.slider').slick({
     autoplay:true,
     autoplaySpeed:2000,
@@ -20,9 +46,6 @@
     slidesToShow:2,
     slidesToScroll:2
   });
-</script>
 
-<div class="button_hide">
-  <button type="button" class="btn btn-primary btn-lg"><%= link_to '地図検索を行う', maps_index_path, :style=>"color:white;"%>
-  </button>
-</div>
+
+</script>
