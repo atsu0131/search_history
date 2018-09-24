@@ -1,7 +1,12 @@
 
+/* 画面外にいる状態 */
+.fadein1 {
+    opacity : 0.1;
+    transform : translate(0, 50px);
+    transition : all 500ms;
+    }
 
-
-.fadein.scrollin {
+.fadein1.scrollin1 {
     opacity : 1;
     transform : translate(0, 0);
 }
@@ -19,8 +24,9 @@ height: 500px;
     width: 80%;
 }
 .slider img{
-    height: 300px;
-    width: 100%;
+  margin-top: 50px;
+  height: 300px;
+  width: 100%;
 }
 /*slick setting*/
 .slick-prev:before,
@@ -72,6 +78,17 @@ margin-left: 400px;
 
 .rank_i{
   margin-left: 80px;
+}
+
+.block{
+  height: 50px;
+  width: 100%
+}
+
+.color_back{
+  height: 500px;
+  width: 100%;
+  background-color: #87ceeb;
 }
 
 // Place all the styles related to the toppages controller here.

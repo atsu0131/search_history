@@ -44,7 +44,7 @@
       <% unless admin_logged_in? %>
       <ul class="nav navbar-nav">
         <li><%= link_to "管理者用", castles_path , class: "kanri"%></li>
-        </ul>
+      </ul>
       <% end %>
       <ul class="nav navbar-nav">
         <li><%= link_to 'allusers', users_path if logged_in? %></li>
@@ -56,7 +56,7 @@
 function gate(){
    // ▼ユーザの入力を求める
    var UserInput = prompt("パスワードを入力して下さい:","");
-   // ▼キャンセルをチェック
+
    if( "castle" == UserInput ) {
       // ▼入力内容からファイル名を生成して移動
       window.location.href = '/castles/new';

@@ -9,12 +9,14 @@
 
 
 <div class="button_hide">
-<!--   <div class="fadein"> -->
+  <section class="fadein1">
     <button type="button" class="btn btn-primary btn-lg "><%= link_to '地図検索を行う', maps_index_path, :style=>"color:white;"%>
     </button>
-<!--   </div> -->
+  </section>
 </div>
 
+<div class="block"></div>
+  <section class="fadein1">
 <%= link_to user_path(current_user.id) do %>
 <i class="fas fa-vihara fa-5x"></i>
 <% end %>
@@ -25,32 +27,34 @@
 <i class="fas fa-crown fa-5x"></i>
 <% end %>
 <div class="pro_i">自分のプロフィールをみる
-
 <span class="map_i">地図で検索する</span>
-
 <span class="rank_i">ランキングをみる</span>
 </div>
-<ul class="slider">
-  <li><%= image_tag 'kakegawa.jpg'%></li>
-  <li><%= image_tag 'himeji.jpg'%></li>
-  <li><%= image_tag 'hamamatsu.jpg'%></li>
-  <li><%= image_tag 'nagoya.jpg'%></li>
-  <li><%= image_tag 'kakegawa.jpg'%></li>
-  <li><%= image_tag 'inuyama.jpg'%></li>
-  <li><%= image_tag 'matsumoto.jpg'%></li>
-  <li><%= image_tag 'hikone.jpg'%></li>
-</ul>
+</section>
+
+<div class="color_back">
+  <ul class="slider">
+    <li><%= image_tag 'kakegawa.jpg'%></li>
+    <li><%= image_tag 'himeji.jpg'%></li>
+    <li><%= image_tag 'hamamatsu.jpg'%></li>
+    <li><%= image_tag 'nagoya.jpg'%></li>
+    <li><%= image_tag 'kakegawa.jpg'%></li>
+    <li><%= image_tag 'inuyama.jpg'%></li>
+    <li><%= image_tag 'matsumoto.jpg'%></li>
+    <li><%= image_tag 'hikone.jpg'%></li>
+  </ul>
+</div>
 
 <script>
 
 $(function(){
     $(window).scroll(function (){
-        $('.fadein').each(function(){
+        $('.fadein1').each(function(){
             var elemPos = $(this).offset().top;
             var scroll = $(window).scrollTop();
             var windowHeight = $(window).height();
-            if (scroll > elemPos - windowHeight + 200){
-                $(this).addClass('scrollin');
+            if (scroll > elemPos - windowHeight +200){
+                $(this).addClass('scrollin1');
             }
         });
     });
