@@ -1,18 +1,15 @@
 
-.fadein {
-    opacity : 0;
-    transform : translate(0, 50px);
-    transition : all 300ms;
-}
+
+
 .fadein.scrollin {
     opacity : 1;
     transform : translate(0, 0);
 }
 
 .back{
-background-image : url('himeji.jpg');
+background-image : url('himeji01.jpg');
 background-repeat: no-repeat;
-background-size: cover;
+background-size: 100% 500px;;
 width: 100%;
 height: 500px;
 }
@@ -32,11 +29,12 @@ height: 500px;
 }
 
 .top_title h1{
-  text-align: center;
+  margin-left: 40px;
+  font-family:  serif,'arial black';
 }
 
 .top_title h4{
-  text-align: center;
+  margin-left: 20px;
 }
 
 button{
@@ -47,11 +45,34 @@ button{
 }
 
 .button_hide{
-  height: 150px;
+  height: 200px;
   width: 100%;
   background-color: gray;
 }
 
+.fa-vihara{
+margin-left: 400px;
+}
+
+.fa-map{
+  margin-left: 100px;
+}
+
+.fa-crown{
+  margin-left: 100px;
+}
+
+.pro_i{
+  margin-left: 350px;
+}
+
+.map_i{
+  margin-left: 60px;
+}
+
+.rank_i{
+  margin-left: 80px;
+}
 
 // Place all the styles related to the toppages controller here.
 // They will automatically be included in application.css.

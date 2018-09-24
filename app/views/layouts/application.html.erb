@@ -29,7 +29,7 @@
           <li><%= link_to "maps", maps_index_path %></li>
           <li><%= link_to "ranking", rankings_favorite_path %></li>
           <li><%= link_to "Profile", user_path(current_user.id) %></li>
-          <li><%= link_to "Logout", session_path(current_user.id), method: :delete %></li>
+          <li><%= link_to "Logout", session_path(current_user.id), method: :delete ,data: { confirm: '本当にログアウトしていいですか？' }%></li>
         <% else %>
           <li><%= link_to "Sign up", new_user_path %></li>
           <li><%= link_to "Login", new_session_path %></li>
@@ -48,8 +48,21 @@
       <% end %>
       <ul class="nav navbar-nav">
         <li><%= link_to 'allusers', users_path if logged_in? %></li>
+        <li><a href="#" onclick="gate();">管理者用</a></li>
       </ul>
 
+
+<script type="text/javascript">
+function gate(){
+   // ▼ユーザの入力を求める
+   var UserInput = prompt("パスワードを入力して下さい:","");
+   // ▼キャンセルをチェック
+   if( "castle" == UserInput ) {
+      // ▼入力内容からファイル名を生成して移動
+      window.location.href = '/castles/new';
+   }
+}
+</script>
 
 		</div>
 	</div>

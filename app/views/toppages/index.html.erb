@@ -1,5 +1,8 @@
+<head>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+</head>
 <div class="back">
-<span class="top_title"><br><h1>歴タン</h1></span>
+<span class="top_title"><br><h1>レキ探</h1></span>
 <span class="top_title"><h4>国内のさまざまなお城を探すことができます</h4></span>
 
 </div>
@@ -12,7 +15,21 @@
 <!--   </div> -->
 </div>
 
+<%= link_to user_path(current_user.id) do %>
+<i class="fas fa-vihara fa-5x"></i>
+<% end %>
+<%= link_to maps_index_path do %>
+<i class="fas fa-map fa-5x"></i>
+<% end %>
+<%= link_to rankings_favorite_path do %>
+<i class="fas fa-crown fa-5x"></i>
+<% end %>
+<div class="pro_i">自分のプロフィールをみる
 
+<span class="map_i">地図で検索する</span>
+
+<span class="rank_i">ランキングをみる</span>
+</div>
 <ul class="slider">
   <li><%= image_tag 'kakegawa.jpg'%></li>
   <li><%= image_tag 'himeji.jpg'%></li>
