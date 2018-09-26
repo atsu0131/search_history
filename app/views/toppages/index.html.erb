@@ -1,36 +1,65 @@
 <head>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.1/css/swiper.min.css">
 </head>
-<div class="back">
+
+
 <span class="top_title"><br><h1>レキ探</h1></span>
 <span class="top_title"><h4>国内のさまざまなお城を探すことができます</h4></span>
 
+<!-- Slider main container -->
+<div class="swiper-container">
+    <!-- Additional required wrapper -->
+    <div class="swiper-wrapper">
+        <!-- Slides -->
+        <div class="swiper-slide"><%= image_tag 'himeji.jpg', :size => "600x400"%></div>
+        <div class="swiper-slide"><%= image_tag 'kakegawa.jpg'%></div>
+        <div class="swiper-slide"><%= image_tag 'kakegawa.jpg'%></div>
+    </div>
+    <!-- If we need pagination -->
+    <div class="swiper-pagination"></div>
+
+    <!-- If we need navigation buttons -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
 </div>
 
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.1/js/swiper.min.js"></script>
+
 <div class="button_hide">
   <section class="fadein1">
-    <button type="button" class="btn btn-primary btn-lg "><%= link_to '地図検索を行う', maps_index_path, :style=>"color:white;"%>
-    </button>
+    <% if logged_in? %>
+      <button type="button" class="btn btn-primary btn-lg "><%= link_to '地図検索を行う', maps_index_path, :style=>"color:white;"%>
+      </button>
+    <% else %>
+      <button type="button" class="btn btn-primary btn-lg "><%= link_to 'ログインする', new_session_path, :style=>"color:white;"%>
+    <% end %>
   </section>
 </div>
 
 <div class="block"></div>
   <section class="fadein1">
-<%= link_to user_path(current_user.id) do %>
-<i class="fas fa-vihara fa-5x"></i>
-<% end %>
-<%= link_to maps_index_path do %>
-<i class="fas fa-map fa-5x"></i>
-<% end %>
-<%= link_to rankings_favorite_path do %>
-<i class="fas fa-crown fa-5x"></i>
-<% end %>
-<div class="pro_i">自分のプロフィールをみる
-<span class="map_i">地図で検索する</span>
-<span class="rank_i">ランキングをみる</span>
-</div>
-</section>
+        <% if logged_in? %>
+          <%= link_to user_path(current_user.id) do %>
+          <i class="fas fa-vihara fa-5x"></i>
+          <% end %>
+        <% else %>
+          <%= link_to maps_index_path do %>
+          <i class="fas fa-vihara fa-5x"></i>
+          <% end %>
+        <% end %>
+  <%= link_to maps_index_path do %>
+  <i class="fas fa-map fa-5x"></i>
+  <% end %>
+  <%= link_to rankings_favorite_path do %>
+  <i class="fas fa-crown fa-5x"></i>
+  <% end %>
+    <div class="pro_i">自分のプロフィールをみる
+      <span class="map_i">地図で検索する</span>
+      <span class="rank_i">ランキングをみる</span>
+    </div>
+  </section>
 
 <div class="color_back">
   <ul class="slider">
@@ -46,6 +75,36 @@
 </div>
 
 <script>
+
+
+
+var mySwiper = new Swiper ('.swiper-container', {
+  loop: true,
+  slidesPerView: 2,
+  autoplay:2000,
+  spaceBetween: 10,
+  centeredSlides : true,
+  pagination: '.swiper-pagination',
+  nextButton: '.swiper-button-next',
+  prevButton: '.swiper-button-prev'
+})
+
+$(function(){
+  $('slideshow').each(function(){
+    var $slides = $(this).find('image_tag'),
+    slideCount = $slides.length,
+    currentIndex = 0;
+
+  $slides.eq(currentIndex).fadeIn();
+  setInterval(showNextSlide, 7500);
+  function showNextSlide(){
+    var nextIndex = (currentIndex+1)%slideCount;
+    $slides.eq(currentIndex).fadeOut();
+    $slides.eq(nextIndex).fadeIn();
+    currentIndex = nextIndex;
+  }
+  });
+});
 
 $(function(){
     $(window).scroll(function (){
