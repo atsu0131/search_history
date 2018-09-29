@@ -1,40 +1,26 @@
 
-
-<table>
-  <tr>
-    <th>品物</th>
-    <th>値段</th>
-    <th>在庫</th>
-    <th>情報</th>
-  </tr>
-  <tr>
-  <% @articles.each do |article| %>
-
-  <div class="article_menu">
-  <td><%= article.ar_name %></td>
-  <td><%= article.ar_price %></td>
-  <td><%= article.ar_stock %></td>
-  <td><%= link_to '詳細', article_path(article.id) %></td>
-  </div>
-  </tr>
-
-  <% end %>
+<div class="article_top"></div>
 
   <% @articles.each do |article| %>
       <div class="item">
         <div class="col-md-3 col-sm-4 col-xs-12">
           <div class="panel panel-default">
             <div class="panel-heading text-center">
-              <img src="" alt="" >
+              <% if article.ar_image.present? %>
+              <%= image_tag article.ar_image , :size => '100x100' %>
+              <% else %>
+              <%= image_tag 'noimage.jpg', :size => "100x100"%>
+              <% end %>
             </div>
             <div class="panel-body">
-              <% if article.persisted? %>
                 <p class="item-title"><%= article.ar_name %></p>
-              <% else %>
-                <p class="item-title"><%= article.ar_name %></p>
-              <% end %>
-              <div class="buttons text-center">
-              </div>
+                <div class="price"><%= article.ar_price %>円</div>
+                <% if article.ar_stock > 0 %>
+                  <div class="stock">在庫あり</div>
+                  <div class="buttons text-center"><%= link_to '購入する', article_path(article.id) %></div>
+                <% else %>
+                  <div class="stock">在庫なし</div>
+                <% end %>
             </div>
           </div>
         </div>

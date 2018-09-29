@@ -1,11 +1,11 @@
-<h1>Quizs#index</h1>
-<p>Find me in app/views/quizs/index.html.erb</p>
 
+<h2>クイズ一覧</h2>
 <% @quizzes.each do |quiz| %>
-
-<%= quiz.q_tilte %>
+<div class="quiz_menu">
+<%= quiz.q_title %>
+<%= quiz.q_content %>
 <%= link_to '回答する', quiz_path(quiz.id) %>
-
+</div>
 <% end %>
 
 <%= link_to 'クイズを作成する', new_quiz_path %>

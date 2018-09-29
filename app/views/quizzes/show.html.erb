@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
+<title>クイズ</title>
+<script>
+$(function() {
+  $('button').click(function() {
+    if ($('input[name="radio"]:checked').val() == <%= @quiz.q_correct %>) alert('正解！');
+    else alert('はずれ！');
+  });
+});
+</script>
+</head>
+<body>
+  <div class="quiz_title"><%= @quiz.q_title %></div>
+  <div class="quiz_content"><%= @quiz.q_content %></div>
+    <div class="answer1"><input type="radio" name="radio" value="1"><%= @quiz.q_answer1 %></div>
+    <div class="answer2"><input type="radio" name="radio" value="2"><%= @quiz.q_answer2 %></div>
+    <div class="answer3"><input type="radio" name="radio" value="3"><%= @quiz.q_answer3 %></div>
+    <div class="answer4"><input type="radio" name="radio" value="4"><%= @quiz.q_answer4 %></div>
+
+  <button>回答する！</button>
+</body>
+</html>

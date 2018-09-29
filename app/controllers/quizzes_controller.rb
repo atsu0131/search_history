@@ -8,7 +8,7 @@ class QuizzesController < ApplicationController
 
   def create
     @quiz = Quiz.create(params_set)
-    redirect_to quizs_index_path
+    redirect_to quizzes_path
   end
 
   def show
@@ -17,7 +17,7 @@ class QuizzesController < ApplicationController
 
   private
     def params_set
-    params.require(:quiz).permit(:q_tilte,:q_content,:q_answer1,:q_answer2,:q_answer3,:q_answer4,:q_correct,:user_id)
+    params.require(:quiz).permit(:q_title,:q_content,:q_answer1,:q_answer2,:q_answer3,:q_answer4,:q_correct,:user_id)
   end
 
 end

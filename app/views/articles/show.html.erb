@@ -1,6 +1,6 @@
-  <td><%= @article.ar_name %></td>
-  <td><%= @article.ar_price %></td>
-  <td><%= @article.ar_stock %></td>
+<div class="article_menu">商品名</div>
+<p class="item-title"><%= @article.ar_name %></p>
+<div class="price"><%= @article.ar_price %>円</div>
 
 <%= form_tag(action: :pay, method: :post) do %>
    <script type="text/javascript" src="https://checkout.pay.jp" class="payjp-button" data-key="公開キー"></script>
