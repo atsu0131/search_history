@@ -29,7 +29,7 @@
           <li><%= link_to "maps", maps_index_path %></li>
           <li><%= link_to "ranking", rankings_favorite_path %></li>
           <li><%= link_to "Profile", user_path(current_user.id) %></li>
-          <li><%= link_to "purchase", articles_index_path %></li>
+          <li><%= link_to "purchase", articles_path %></li>
           <li><%= link_to "quiz", quizzes_path %></li>
           <li><%= link_to "Logout", session_path(current_user.id), method: :delete ,data: { confirm: '本当にログアウトしていいですか？' }%></li>
         <% else %>

@@ -8,7 +8,6 @@ Rails.application.routes.draw do
 
   get 'users/index'
 
-  get 'articles/index'
 
   get 'rankings/favorite'
 

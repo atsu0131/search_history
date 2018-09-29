@@ -15,14 +15,20 @@
             <div class="panel-body">
                 <p class="item-title"><%= article.ar_name %></p>
                 <div class="price"><%= article.ar_price %>円</div>
-                <% if article.ar_stock > 0 %>
-                  <div class="stock">在庫あり</div>
-                  <div class="buttons text-center"><%= link_to '購入する', article_path(article.id) %></div>
-                <% else %>
-                  <div class="stock">在庫なし</div>
+                <% if article.ar_stock.present? %>
+                  <% if article.ar_stock > 0 %>
+                    <div class="stock">在庫あり</div>
+                    <div class="buttons text-center"><%= link_to '購入する', article_path(article.id) %></div>
+                  <% else %>
+                    <div class="stock">在庫なし</div>
+                  <% end %>
                 <% end %>
             </div>
           </div>
         </div>
       </div>
     <% end %>
+
+  <%= link_to '登録する', new_article_path %>
+
+  <div class="blank"></div>

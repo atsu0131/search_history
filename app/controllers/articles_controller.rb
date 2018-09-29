@@ -11,7 +11,7 @@ class ArticlesController < ApplicationController
 
   def create
     @article = Article.create(params_set)
-    redirect_to articles_index_path
+    redirect_to articles_path
   end
 
   def show
