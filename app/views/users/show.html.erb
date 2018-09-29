@@ -85,18 +85,22 @@ var myChart = new Chart(ctx, {
 
 <h2>お気に入り一覧</h2>
 <div class="favorite">
-<% @favorites_castles.each do |favorite| %>
-<div class="kakomi-tape1 col-md-4"><%= link_to favorite.ca_name , castle_path(favorite), class: "font" %></div>
-<% end %>
+  <% @favorites_castles.each do |favorite| %>
+    <div class="kakomi-tape1 col-md-4"><%= link_to favorite.ca_name , castle_path(favorite), class: "font" %>
+    </div>
+  <% end %>
 </div>
-<br>
-<br>
-<div>
+<div class="blank"></div>
+<div class="blank"></div>
+
 <div class="visit_castle">
-  <h2>訪れた城一覧</h2></div>
+  <h2>訪れた城一覧</h2>
+    <div class="visit">
+      <% @visits_castles.each do |visit| %>
+      <div class="kakomi-tape1 col-md-4"><%= link_to visit.ca_name , castle_path(visit), class: "font" %>
+      </div>
+      <% end %>
+    </div>
 </div>
-<div class="visit">
-<% @visits_castles.each do |visit| %>
-<div class="kakomi-tape1 col-md-4"><%= link_to visit.ca_name , castle_path(visit), class: "font" %></div>
-<% end %>
-</div>
+
+<div class="blank"></div>

@@ -1,7 +1,7 @@
 <div class="article_menu">商品名</div>
 <p class="item-title"><%= @article.ar_name %></p>
 <div class="price"><%= @article.ar_price %>円</div>
-
+  <%= image_tag @article.ar_image , :size => '400x300' %>
 <%= form_tag(action: :pay, method: :post) do %>
    <script type="text/javascript" src="https://checkout.pay.jp" class="payjp-button" data-key="公開キー"></script>
 <% end %>

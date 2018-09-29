@@ -6,6 +6,12 @@
     <%= form.text_field :ar_name %>
   </div>
 
+  <div class="ar_image">
+    <%= form.label :ar_image,'画像：' %>
+    <%= image_tag(@article.ar_image.url) if @article.ar_image.url %>
+    <%= form.file_field :ar_image %>
+  </div>
+
   <div class="ar_price">
     <%= form.label :ar_price,'販売金額：' %>
     <%= form.text_field :ar_price %>

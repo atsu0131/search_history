@@ -32,6 +32,6 @@ class ArticlesController < ApplicationController
 
 private
     def params_set
-    params.require(:article).permit(:ar_name,:ar_price,:ar_stock,:ar_pref,:ar_info,:user_id,:castle_id)
+    params.require(:article).permit(:ar_name,:ar_image,:ar_price,:ar_stock,:ar_pref,:ar_info,:user_id,:castle_id)
   end
 end
