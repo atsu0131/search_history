@@ -3,6 +3,7 @@
     <% if comment.id.present? %>
 
         <p><%= image_tag (comment.image), :size => '400x300' if comment.image.present? %></p>
+        <p><%= comment.user.name %></p>
         <p><%= comment.content %></p>
         <li>
         <% if comment.user_id == current_user.id %>

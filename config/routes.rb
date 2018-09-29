@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'quizs/index'
+
   root to: 'toppages#index'
 
   get 'relationships/create'
@@ -63,6 +65,13 @@ Rails.application.routes.draw do
     resources :messages
   end
 
+  resources :articles do
+    post :pay, on: :member
+  end
+
+  resources :messages
+
+  resources :quizzes
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

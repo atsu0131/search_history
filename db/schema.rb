@@ -10,10 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180922021754) do
+ActiveRecord::Schema.define(version: 20180928105118) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "articles", force: :cascade do |t|
+    t.string "ar_name"
+    t.integer "ar_price"
+    t.integer "ar_stock"
+    t.integer "ar_pref"
+    t.text "ar_info"
+    t.string "user_id"
+    t.string "castle_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "blogs", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -49,6 +61,16 @@ ActiveRecord::Schema.define(version: 20180922021754) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
+  create_table "conversations", force: :cascade do |t|
+    t.integer "sender_id"
+    t.integer "recipient_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["recipient_id"], name: "index_conversations_on_recipient_id"
+    t.index ["sender_id", "recipient_id"], name: "index_conversations_on_sender_id_and_recipient_id", unique: true
+    t.index ["sender_id"], name: "index_conversations_on_sender_id"
+  end
+
   create_table "favorites", force: :cascade do |t|
     t.integer "user_id"
     t.integer "castle_id"
@@ -59,6 +81,30 @@ ActiveRecord::Schema.define(version: 20180922021754) do
   create_table "maps", force: :cascade do |t|
     t.string "region"
     t.integer "castle_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.text "body"
+    t.bigint "conversation_id"
+    t.bigint "user_id"
+    t.boolean "read", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["conversation_id"], name: "index_messages_on_conversation_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
+  create_table "quizzes", force: :cascade do |t|
+    t.string "q_title"
+    t.text "q_content"
+    t.string "q_answer1"
+    t.string "q_answer2"
+    t.string "q_answer3"
+    t.string "q_answer4"
+    t.integer "q_correct"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -92,4 +138,6 @@ ActiveRecord::Schema.define(version: 20180922021754) do
 
   add_foreign_key "comments", "castles"
   add_foreign_key "comments", "users"
+  add_foreign_key "messages", "conversations"
+  add_foreign_key "messages", "users"
 end

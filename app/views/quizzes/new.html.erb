@@ -1,0 +1,40 @@
+<%= form_with(model: @quiz, local: true) do |form| %>
+
+  <div class="q_title">
+    <%= form.label :q_title,'タイトル：' %>
+    <%= form.text_field :q_title %>
+  </div>
+
+  <div class="ar_price">
+    <%= form.label :q_content,'内容：' %>
+    <%= form.text_field :ar_price %>
+  </div>
+
+  <div class="q_answer1">
+    <%= form.label :q_answer1,'回答欄1：' %>
+    <%= form.text_field :q_answer1 %>
+  </div>
+
+    <div class="q_answer2">
+    <%= form.label :q_answer2,'回答欄2：' %>
+    <%= form.text_field :q_answer1 %>
+  </div>
+
+    <div class="q_answer3">
+    <%= form.label :q_answer3,'回答欄3：' %>
+    <%= form.text_field :q_answer1 %>
+  </div>
+
+    <div class="q_answer4">
+    <%= form.label :q_answer4,'回答欄4：' %>
+    <%= form.text_field :q_answer1 %>
+  </div>
+
+  <div class="q_correct">
+    <%= form.label :q_correct,'答え：' %>
+    <%= form.text_field :q_correct %>
+  </div>
+
+
+  <%= form.submit("送信") %>
+<% end %>

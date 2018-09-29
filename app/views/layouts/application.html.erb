@@ -19,7 +19,7 @@
 				<span class="icon-bar"></span>
 			</button>
 			<a class="navbar-brand" href="/toppages/index">
-				レキ探
+				レキタン！
 			</a>
 		</div>
 
@@ -29,6 +29,7 @@
           <li><%= link_to "maps", maps_index_path %></li>
           <li><%= link_to "ranking", rankings_favorite_path %></li>
           <li><%= link_to "Profile", user_path(current_user.id) %></li>
+          <li><%= link_to "purchase", articles_index_path %></li>
           <li><%= link_to "Logout", session_path(current_user.id), method: :delete ,data: { confirm: '本当にログアウトしていいですか？' }%></li>
         <% else %>
           <li><%= link_to "Sign up", new_user_path %></li>
@@ -43,12 +44,11 @@
 			</form> -->
       <% unless admin_logged_in? %>
       <ul class="nav navbar-nav">
-        <li><%= link_to "管理者用", castles_path , class: "kanri"%></li>
+        <li><%= link_to "admin", castles_path , class: "kanri"%></li>
       </ul>
       <% end %>
       <ul class="nav navbar-nav">
         <li><%= link_to 'allusers', users_path if logged_in? %></li>
-        <li><a href="#" onclick="gate();">管理者用</a></li>
       </ul>
 
 
@@ -67,9 +67,17 @@ function gate(){
 		</div>
 	</div>
 </nav>
-<body>
 
 
-   <%= yield %>
- </body>
+  <%= yield %>
+    <footer>
+      <div class="footer">
+        <ul>
+          <li><a href="#" onclick="gate();">admin</a></li>
+        </ul>
+      </div>
+    </footer>
+
+  </body>
+
 </html>

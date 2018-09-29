@@ -1,5 +1,38 @@
 
+.example {
+  position: relative;
+}
 
+
+
+.example h1 {
+  color: white;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  margin:0;
+  padding:0;
+}
+
+.example h4 {
+  color: white;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  margin:0;
+  padding:0;
+  margin-top: 50px;
+}
+
+.example img {
+  width: 100%;
+}
 
 
 /* 画面外にいる状態 */
@@ -7,7 +40,7 @@
   opacity : 0.1;
   transform : translate(0, 50px);
   transition : all 500ms;
-  }
+}
 
 .fadein1.scrollin1 {
   opacity : 1;
@@ -92,6 +125,14 @@ margin-left: 400px;
   height: 500px;
   width: 100%;
   background-color: #87ceeb;
+}
+
+footer{
+  width: 100%;
+  height:50px;
+  background-color: black;
+    position: fixed;
+    bottom: 0;
 }
 
 // Place all the styles related to the toppages controller here.
