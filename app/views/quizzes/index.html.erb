@@ -1,11 +1,26 @@
 
 <h2>クイズ一覧</h2>
 <% @quizzes.each do |quiz| %>
-<div class="quiz_menu">
-<%= quiz.q_title %>
-<%= quiz.q_content %>
-<%= link_to '回答する', quiz_path(quiz.id) %>
-</div>
+<table class="table table-hover col-md-3 col-sm-4 col-xs-12">
+<thead>
+<tr>
+<th>タイトル</th>
+<th>内容</th>
+<th></th>
+</tr>
+
+</thead>
+<tbody>
+<tr>
+<td class="title_quiz"><%= quiz.q_title %></td>
+<td class="content_quiz"><%= quiz.q_content %></td>
+<td class="answer_quiz"><%= link_to '回答する', quiz_path(quiz.id), class:"btn btn-info" %></td>
+</tr>
+</tbody>
+</table>
+
 <% end %>
 
-<%= link_to 'クイズを作成する', new_quiz_path %>
+<div class="create_quiz">
+  <%= link_to 'クイズを作成する', new_quiz_path %>
+</div>
