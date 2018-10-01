@@ -25,6 +25,19 @@
   display:none;
 }
 
+.image_ca_rightcontent{
+  float: right;
+}
+
+.image_ca_leftcontent{
+  float: left;
+  width: 60%
+}
+
+.panel_arrange td li{
+  width: 50%;
+  height: 100px;
+}
 
 // Place all the styles related to the kantous controller here.
 // They will automatically be included in application.css.

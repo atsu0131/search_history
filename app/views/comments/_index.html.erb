@@ -7,8 +7,8 @@
         <p><%= comment.content %></p>
         <li>
         <% if comment.user_id == current_user.id %>
-        <td><%= link_to '編集', edit_castle_comment_path(castle.id,comment.id) %></td>
-        <td><%= link_to '削除', castle_comment_path(castle.id,comment.id), method: :delete, data: { confirm: '本当に削除していいですか？' }  %></td>
+        <td><%= link_to '編集', edit_castle_comment_path(castle.id,comment.id), class: "btn btn-primary" %></td>
+        <td><%= link_to '削除', castle_comment_path(castle.id,comment.id), method: :delete, data: { confirm: '本当に削除していいですか？' }, class: "btn btn-danger" %></td>
         <% end %>
       </li>
     <% end %>

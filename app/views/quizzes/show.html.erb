@@ -22,5 +22,9 @@ $(function() {
     <div class="answer4"><input type="radio" name="radio" value="4"><%= @quiz.q_answer4 %></div>
 
   <button>回答する！</button>
+
+  <div class="blank"></div>
+    <%= link_to 'クイズを作成する', new_quiz_path %>
+      <%= link_to '一覧に戻る', quizzes_path %>
 </body>
 </html>
