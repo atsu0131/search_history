@@ -2,24 +2,49 @@
   <%= link_to '以前のメッセージ', '?m=all' %>
 <% end %>
 
-<div class="ui segment">
+
+<div class="line-bc"><!--①LINE会話全体を囲う-->
   <% @messages.each do |message| %>
-    <% if message.body %>
+      <% if message.body %>
       <% user = User.find(message.user_id) %>
-      <div class="item">
-        <div class="content">
-          <div class="header"><strong><%= user.name %></strong> <%= message.message_time %></div>
-          <div class="list">
-            <div class="item">
-              <i class="right triangle icon"></i>
-              <%= message.body %>
-            </div>
-          </div>
+  <% if message.user_id == current_user.id %>
+
+    <!--2右コメント始-->
+  <div class="mycomment">
+        <strong><%= user.name %></strong> <%= message.message_time %>
+        <div class="mess">
+        <i class="right triangle icon"></i>
+        <p><%= message.body %></p>
+        </div>
+  </div>
+  <!--/2右コメント終-->
+
+  <% else %>
+    <!--3左コメント始-->
+  <div class="balloon6">
+    <div class="faceicon">
+<!--   ★ここにアイコン画像 <img~>★ -->
+    </div>
+    <div class="chatting">
+      <div class="name_message">
+      <strong><%= user.name %></strong> <%= message.message_time %>
+      </div>
+      <div class="says">
+        <div class="mess">
+        <i class="right triangle icon"></i>
+        <p><%= message.body %></p>
         </div>
       </div>
-    <% end %>
+    </div>
+  </div>
+  <!--3/左コメント終-->
+
   <% end %>
-</div>
+  <% end %>
+  <% end %>
+
+</div><!--/①LINE会話終了-->
+
 
 <%= form_with(model: [@conversation, @message],local: true) do |f| %>
   <div class="field">
@@ -29,5 +54,6 @@
   <div>
     <%= f.submit "メッセージを送る" %>
   </div>
-
 <% end %>
+
+<div class="blank"></div>

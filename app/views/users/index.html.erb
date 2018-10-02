@@ -1,12 +1,20 @@
 <h2>ユーザー</h2>
 <% @users.each do |user| %>
   <% if user.id != current_user.id %>
-    <li>
-      <div class="item">
-        <%= link_to user.name, user %>
-        <%= link_to 'メッセージ', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: :post%>
-      </div>
-    </li>
-    <li><%= render 'follow_form', user: user %></li> <!-- フォロー機能が実装されて入ればこの一文も -->
+
+
+  <div class="col-md-3 col-sm-4 col-xs-12">
+    <div class="card img-thumbnail">
+
+      <div class="card-body px-2 py-3">
+        <h5 class="card-title"><%= link_to user.name, user %></h5>
+        <p class="card-text">コンテンツ コンテンツ コンテンツ コンテンツ</p>
+        <p class="mb-0"><%= link_to 'メッセージ', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: :post, class: "btn btn-success" %> <%= render 'follow_form', user: user %></p>
+
+      </div><!-- /.card-body -->
+    </div><!-- /.card -->
+  </div><!-- /.col-sm-6.col-md-3 -->
+
+
   <% end %>
 <% end %>

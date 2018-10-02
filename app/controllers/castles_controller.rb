@@ -18,7 +18,7 @@ class CastlesController < ApplicationController
   end
   def show
     @castle = Castle.find(params[:id])
-    @comments = @castle.comments
+    @comments = @castle.comments.page(params[:page])
     @comment = @castle.comments.build
     @favorite = current_user.favorites.find_by(castle_id: @castle.id)
     @ranking_counts = Favorite.ranking
