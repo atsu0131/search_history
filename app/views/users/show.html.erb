@@ -10,7 +10,7 @@
 
 <p>メールアドレス: <%= @user.email %></p>
 
-<p><%= link_to "編集する",edit_user_path(@user) %></p>
+<p><%= link_to "ユーザー情報を編集する",edit_user_path(@user) %></p>
 
 <div class="ranks_panel panel panel-default">
   <div class="panel-heading">
@@ -88,13 +88,20 @@ var myChart = new Chart(ctx, {
 </script>
 
 
+
 <h2>お気に入り一覧</h2>
 <div class="favorite">
   <% @favorites_castles.each do |favorite| %>
     <div class="kakomi-tape1 col-md-4"><%= link_to favorite.ca_name , castle_path(favorite), class: "font" %>
+      <% if favorite.ca_top_image.present? %>
+      <%= image_tag favorite.ca_top_image , :size => '100x100', class: "right_float" %>
+      <% else %>
+      <%= image_tag 'noimage.jpg' , :size => '100x100', class: "right_float"  %>
+      <% end %>
     </div>
   <% end %>
 </div>
+<div class="blank"></div>
 <div class="blank"></div>
 <div class="blank"></div>
 
@@ -103,6 +110,11 @@ var myChart = new Chart(ctx, {
     <div class="visit">
       <% @visits_castles.each do |visit| %>
       <div class="kakomi-tape1 col-md-4"><%= link_to visit.ca_name , castle_path(visit), class: "font" %>
+      <% if visit.ca_top_image.present? %>
+      <%= image_tag visit.ca_top_image , :size => '100x100', class: "right_float" %>
+      <% else %>
+      <%= image_tag 'noimage.jpg' , :size => '100x100', class: "right_float"  %>
+      <% end %>
       </div>
       <% end %>
     </div>

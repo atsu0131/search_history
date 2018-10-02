@@ -16,7 +16,16 @@
     <%= f.text_field :age, in: 18...100 %>
     </div>
 
+    <div class="user">
+    <%= f.label :icon_image %>
+    <%= image_tag(@user.icon_image.url) if @user.icon_image.url %>
+    <%= f.file_field :icon_image %>
+    </div>
 
+    <div class="user">
+    <%= f.label :user_comment %>
+    <%= f.text_field :user_comment %>
+    </div>
 
     <div class="user">
     <%= f.label :password %>
@@ -33,3 +42,5 @@
     </div>
 
   <% end %>
+
+  <div class="blank"></div>

@@ -1,9 +1,11 @@
 
+.navbar-inverse{
+  background-color: black;
+}
+
 .example {
   position: relative;
 }
-
-
 
 .example h1 {
   color: white;
@@ -34,6 +36,11 @@
   width: 100%;
 }
 
+.color_blank{
+  height: 50px;
+  width: 100%;
+  background-color: #E6E6FA;
+}
 
 /* 画面外にいる状態 */
 .fadein1 {
@@ -124,7 +131,7 @@ margin-left: 400px;
 .color_back{
   height: 500px;
   width: 100%;
-  background-color: #87ceeb;
+  background-color: #E6E6FA;
 }
 
 footer{
