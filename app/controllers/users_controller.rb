@@ -1,7 +1,9 @@
 class UsersController < ApplicationController
   def index
     @users = User.all
+
   end
+
   def new
     @user = User.new
   end
@@ -38,7 +40,7 @@ class UsersController < ApplicationController
 
 private
 
-def user_params
-  params.require(:user).permit(:name,:email,:age,:sex,:password,:password_confirmation,:icon_image,:user_comment)
-end
+  def user_params
+    params.require(:user).permit(:name,:email,:age,:sex,:password,:password_confirmation,:icon_image,:user_comment)
+  end
 end

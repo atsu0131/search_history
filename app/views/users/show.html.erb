@@ -16,46 +16,44 @@
   <div class="panel-heading">
     <h3 class="panel-title">ユーザーランク</h3>
   </div>
-  <div class="panel-body">
-<% num = @user.comments.select(:image).count + @user.comments.select(:content).count + @user.favorites.count +
-@user.visits.count%>
-<p><%= num %>点</p>
-<% if num < 5 %>
-<p>足軽</p>
-<p>次のランクまで<%= 5 - num %>点必要</p>
-<% elsif num < 10 %>
-<p>侍大将</p>
-<p>次のランクまで<%= 10 - num %>点必要</p>
-<% elsif num < 20 %>
-<p>武将</p>
-<p>次のランクまで<%= 20 - num %>点必要</p>
-<% elsif num < 30 %>
-<p>城主</p>
-<p>次のランクまで<%= 30 - num %>点必要</p>
-<% elsif num < 40 %>
-<p>次のランクまで<%= 40 - num %>点必要</p>
-<p>大名</p>
-<% elsif num > 40 %>
-<p>天下人</p>
-<% end %>
-
-
-<div class="comment">
-<table class="table table-condensed">
-<tr class="table-dark">
-<th>画像投稿数</th>
-<th>コメント投稿数</th>
-<th>お気に入り数</th>
-<th>訪れた城数</th>
-</tr>
-<tr>
-  <td><%= @user.comments.select(:image).count %></td>
-  <td><%= @user.comments.select(:content).count %></td>
-  <td><%= @user.favorites.count %></td>
-  <td><%= @user.visits.count %></td>
-</tr>
-</table>
-</div>
+    <div class="panel-body">
+      <% num = @user.comments.select(:image).count + @user.comments.select(:content).count + @user.favorites.count +
+    @user.visits.count%>
+      <p><%= num %>点</p>
+      <% if num < 5 %>
+        <p>足軽</p>
+        <p>次のランクまで<%= 5 - num %>点必要</p>
+      <% elsif num < 10 %>
+        <p>侍大将</p>
+        <p>次のランクまで<%= 10 - num %>点必要</p>
+      <% elsif num < 20 %>
+        <p>武将</p>
+        <p>次のランクまで<%= 20 - num %>点必要</p>
+      <% elsif num < 30 %>
+        <p>城主</p>
+        <p>次のランクまで<%= 30 - num %>点必要</p>
+      <% elsif num < 40 %>
+        <p>次のランクまで<%= 40 - num %>点必要</p>
+        <p>大名</p>
+      <% elsif num > 40 %>
+        <p>天下人</p>
+      <% end %>
+    <div class="comment">
+      <table class="table table-condensed">
+      <tr class="table-dark">
+        <th>画像投稿数</th>
+        <th>コメント投稿数</th>
+        <th>お気に入り数</th>
+        <th>訪れた城数</th>
+      </tr>
+      <tr>
+        <td><%= @user.comments.select(:image).count %></td>
+        <td><%= @user.comments.select(:content).count %></td>
+        <td><%= @user.favorites.count %></td>
+        <td><%= @user.visits.count %></td>
+      </tr>
+      </table>
+    </div>
   </div>
 </div>
 
@@ -94,9 +92,9 @@ var myChart = new Chart(ctx, {
   <% @favorites_castles.each do |favorite| %>
     <div class="kakomi-tape1 col-md-4"><%= link_to favorite.ca_name , castle_path(favorite), class: "font" %>
       <% if favorite.ca_top_image.present? %>
-      <%= image_tag favorite.ca_top_image , :size => '100x100', class: "right_float" %>
+        <%= image_tag favorite.ca_top_image , :size => '100x100', class: "right_float" %>
       <% else %>
-      <%= image_tag 'noimage.jpg' , :size => '100x100', class: "right_float"  %>
+        <%= image_tag 'noimage.jpg' , :size => '100x100', class: "right_float"  %>
       <% end %>
     </div>
   <% end %>
@@ -109,15 +107,27 @@ var myChart = new Chart(ctx, {
   <h2>訪れた城一覧</h2>
     <div class="visit">
       <% @visits_castles.each do |visit| %>
-      <div class="kakomi-tape1 col-md-4"><%= link_to visit.ca_name , castle_path(visit), class: "font" %>
-      <% if visit.ca_top_image.present? %>
-      <%= image_tag visit.ca_top_image , :size => '100x100', class: "right_float" %>
-      <% else %>
-      <%= image_tag 'noimage.jpg' , :size => '100x100', class: "right_float"  %>
-      <% end %>
-      </div>
+        <div class="kakomi-tape1 col-md-4"><%= link_to visit.ca_name , castle_path(visit), class: "font" %>
+          <% if visit.ca_top_image.present? %>
+            <%= image_tag visit.ca_top_image , :size => '100x100', class: "right_float" %>
+          <% else %>
+            <%= image_tag 'noimage.jpg' , :size => '100x100', class: "right_float"  %>
+          <% end %>
+        </div>
       <% end %>
     </div>
+</div>
+
+<div class="follow">
+  <% @user.followers.each do |follower| %>
+  <%= follower.name %>
+  <% end %>
+</div>
+
+<div class="following">
+  <% @user.following.each do |follow| %>
+  <%= follow.name %>
+  <% end %>
 </div>
 
 <div class="blank"></div>

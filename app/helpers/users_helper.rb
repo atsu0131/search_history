@@ -15,4 +15,5 @@ module UsersHelper
    def admin_logged_in?
      admin_user.present?
    end
+
 end

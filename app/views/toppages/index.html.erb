@@ -41,6 +41,7 @@
     <% end %>
   </section>
 </div>
+
   <div class="color_blank"></div>
   <div class="color_back">
   <section class="fadein1">
@@ -54,10 +55,10 @@
           <% end %>
         <% end %>
   <%= link_to maps_index_path do %>
-  <i class="fas fa-map fa-5x"></i>
+    <i class="fas fa-map fa-5x"></i>
   <% end %>
   <%= link_to rankings_favorite_path do %>
-  <i class="fas fa-crown fa-5x"></i>
+    <i class="fas fa-crown fa-5x"></i>
   <% end %>
 
     <div class="pro_i">自分のプロフィールをみる
@@ -104,12 +105,12 @@ $(function(){
 
 $(function(){
     $(window).scroll(function (){
-        $('.fadein1').each(function(){
-            var elemPos = $(this).offset().top;
-            var scroll = $(window).scrollTop();
-            var windowHeight = $(window).height();
-            if (scroll > elemPos - windowHeight +200){
-                $(this).addClass('scrollin1');
+      $('.fadein1').each(function(){
+        var elemPos = $(this).offset().top;
+        var scroll = $(window).scrollTop();
+        var windowHeight = $(window).height();
+          if (scroll > elemPos - windowHeight +200){
+            $(this).addClass('scrollin1');
             }
         });
     });

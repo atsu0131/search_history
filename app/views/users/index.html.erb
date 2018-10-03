@@ -14,13 +14,17 @@
         <% end %>
         <h5 class="card-title"><%= link_to user.name, user, class: "font" %></h5>
         <p class="card-text">
-        <% if user.user_comment.present? %>
-          <%= user.user_comment %>
-        <% else %>
-          ユーザーからのコメントはありません
-        <% end %>
+          <% if user.user_comment.present? %>
+            <div class="balloon1-left"><%= user.user_comment %></div>
+          <% else %>
+            <div class="balloon1-left">ユーザーからのコメントはありません</div>
+          <% end %>
         </p>
-        <p class="mb-0"><%= link_to 'メッセージ', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: :post, class: "btn btn-success" %> <%= render 'follow_form', user: user %></p>
+        <%# if display_message_btn?(current_user, user) %>
+        <% if current_user.display_message_btn?(user) %>
+        <p class="mb-0"><%= link_to 'メッセージ', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: :post, class: "btn btn-success" %>
+          <% end %>
+          <%= render 'follow_form', user: user %></p>
 
       </div><!-- /.card-body -->
     </div><!-- /.card -->

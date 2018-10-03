@@ -11,4 +11,10 @@ class Castle < ApplicationRecord
 
   has_many :visits, dependent: :destroy
   has_many :visit_users, through: :visits, source: :user
+
+  def build_comment(comment_hash, user_id)
+    comment = comments.build(comment_hash)
+    comment.user_id = user_id
+    return comment
+  end
 end
