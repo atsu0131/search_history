@@ -1,12 +1,12 @@
 class UsersController < ApplicationController
   def index
     @users = User.all
-
   end
 
   def new
     @user = User.new
   end
+
   def create
     @user = User.new(user_params)
     if @user.save
@@ -15,12 +15,14 @@ class UsersController < ApplicationController
       render 'new'
     end
   end
+
   def show
     @user = User.find(params[:id])
     @favorites_castles = @user.favorite_castles
     @visits_castles = @user.visit_castles
     @comments = Comment.all
     @users = User.all
+    @users = User.page(params[:page]).per(5)
     @favorites = Favorite.all
     @visits = Visit.all
   end

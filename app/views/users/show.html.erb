@@ -2,22 +2,27 @@
 
 
 <%= notice %>
-<h1><%= @user.name %>のページ</h1>
 
+<h2>プロフィールページ</h2>
 <div class="chart-container" style="position: relative; height:40vh; width:60vw">
 <canvas id="myChart"></canvas>
 </div>
-
+<p>ユーザー名: <%= @user.name %></p>
 <p>メールアドレス: <%= @user.email %></p>
 
 <p><%= link_to "ユーザー情報を編集する",edit_user_path(@user) %></p>
 
-<div class="ranks_panel panel panel-default">
-  <div class="panel-heading">
-    <h3 class="panel-title">ユーザーランク</h3>
-  </div>
-    <div class="panel-body">
-      <% num = @user.comments.select(:image).count + @user.comments.select(:content).count + @user.favorites.count +
+<div id="tabs">
+  <ul>
+    <li><a href="#panel1">ユーザーランク</a></li>
+    <li><a href="#panel2">点数</a></li>
+    <li><a href="#panel3">フォロー</a></li>
+    <li><a href="#panel4">フォロワー</a></li>
+
+  </ul>
+
+  <div id="panel1" class="panel">
+    <% num = @user.comments.select(:image).count + @user.comments.select(:content).count + @user.favorites.count +
     @user.visits.count%>
       <p><%= num %>点</p>
       <% if num < 5 %>
@@ -38,7 +43,9 @@
       <% elsif num > 40 %>
         <p>天下人</p>
       <% end %>
-    <div class="comment">
+  </div>
+
+  <div id="panel2" class="panel">
       <table class="table table-condensed">
       <tr class="table-dark">
         <th>画像投稿数</th>
@@ -53,8 +60,53 @@
         <td><%= @user.visits.count %></td>
       </tr>
       </table>
-    </div>
   </div>
+
+
+  <div id="panel3" class="panel">
+<table class="table">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th scope="col">ユーザー名</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @user.followers.each_with_index do |follower, index| %>
+    <tr>
+      <th scope="row"><%= index+1 %></th>
+      <td>
+        <%= follower.name %>
+      <% end %>
+      <%= paginate @users %>
+      </td>
+    </tr>
+  </tbody>
+</table>
+  </div>
+
+  <div id="panel4" class="panel">
+    <table class="table">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th scope="col">ユーザー名</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @user.following.each_with_index do |follow, index| %>
+    <tr>
+      <th scope="row"><%= index+1 %></th>
+      <td>
+        <%= follow.name %>
+      <% end %>
+      <%= paginate @users %>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
 </div>
 
 
@@ -83,6 +135,15 @@ var myChart = new Chart(ctx, {
     }]
   }
 });
+
+$(function() {
+  $('#tabs a[href^="#panel"]').click(function(){
+    $("#tabs .panel").hide();
+    $(this.hash).fadeIn();
+    return false;
+  });
+  $('#tabs a[href^="#panel"]:eq(0)').trigger('click');
+})
 </script>
 
 
@@ -118,16 +179,5 @@ var myChart = new Chart(ctx, {
     </div>
 </div>
 
-<div class="follow">
-  <% @user.followers.each do |follower| %>
-  <%= follower.name %>
-  <% end %>
-</div>
-
-<div class="following">
-  <% @user.following.each do |follow| %>
-  <%= follow.name %>
-  <% end %>
-</div>
 
 <div class="blank"></div>

@@ -1,3 +1,4 @@
+<div class="container_user_index">
 <h2>ユーザー</h2>
 <% @users.each do |user| %>
   <% if user.id != current_user.id %>
@@ -17,13 +18,15 @@
           <% if user.user_comment.present? %>
             <div class="balloon1-left"><%= user.user_comment %></div>
           <% else %>
-            <div class="balloon1-left">ユーザーからのコメントはありません</div>
+            <div class="balloon1-left">ユーザーのコメントはありません</div>
           <% end %>
         </p>
         <%# if display_message_btn?(current_user, user) %>
         <% if current_user.display_message_btn?(user) %>
         <p class="mb-0"><%= link_to 'メッセージ', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: :post, class: "btn btn-success" %>
-          <% end %>
+        <% else %>
+        相互フォローでメッセージを送ることができます。
+        <% end %>
           <%= render 'follow_form', user: user %></p>
 
       </div><!-- /.card-body -->
@@ -31,5 +34,7 @@
   </div><!-- /.col-sm-6.col-md-3 -->
 
 
+
   <% end %>
 <% end %>
+</div>

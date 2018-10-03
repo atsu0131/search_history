@@ -1,5 +1,17 @@
 
-
+.swiper-slide {
+  overflow: hidden; /*拡大時にはみ出た部分を隠す*/
+  width: 320px; /*画像の幅*/
+  height: 180px;  /*画像の高さ*/
+}
+.swiper-slide img {
+  display: block;
+  transition-duration: 0.3s;  /*変化に掛かる時間*/
+}
+.swiper-slide img:hover {
+  transform: scale(1.1);  /*画像の拡大率*/
+  transition-duration: 0.3s;  /*変化に掛かる時間*/
+}
 
 .navbar-inverse{
   background-color: black;

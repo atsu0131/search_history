@@ -12,10 +12,12 @@ class CommentsController < ApplicationController
       end
     end
   end
+
   def edit
     @comment = Comment.find(params[:id])
     @castle = Castle.find(params[:castle_id])
   end
+
   def update
     @comment = Comment.find(params[:id])
     @castle = Castle.find(params[:castle_id])
@@ -25,6 +27,7 @@ class CommentsController < ApplicationController
       render 'edit'
     end
   end
+
   def destroy
     @comment = Comment.find(params[:id])
     @castle = Castle.find(params[:castle_id])
