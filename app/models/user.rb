@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  mount_uploader :icon_image, ImageUploader
   validates :name, presence: true,length: { maximum: 30 }
   validates :email, presence: true, length: { maximum: 255 },
     format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
@@ -32,8 +33,16 @@ class User < ApplicationRecord
     active_relationships.find_by(followed_id: other_user.id)
   end
 
+  def followed?(other_user)
+    passive_relationships.find_by(follower_id: other_user.id)
+  end
+
+  def display_message_btn?(other_user)
+    followed?(other_user) && following?(other_user)
+  end
+
 #指定のユーザのフォローを解除する
   def unfollow!(other_user)
-  active_relationships.find_by(followed_id: other_user.id).destroy
+    active_relationships.find_by(followed_id: other_user.id).destroy
   end
 end

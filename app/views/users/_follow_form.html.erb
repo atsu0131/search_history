@@ -6,7 +6,7 @@
     <% end %>
   <% else %>
     <%= form_with(model: current_user.active_relationships.find_by(followed_id: user.id), method: :delete ) do |f| %>
-      <%= f.submit "つながりを解除", class: "btn btn-danger" %>
+    <%= f.submit "つながりを解除", class: "btn btn-danger" %>
     <% end %>
   <% end %>
 </div>

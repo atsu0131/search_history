@@ -7,9 +7,24 @@
     <div class="card img-thumbnail">
 
       <div class="card-body px-2 py-3">
-        <h5 class="card-title"><%= link_to user.name, user %></h5>
-        <p class="card-text">コンテンツ コンテンツ コンテンツ コンテンツ</p>
-        <p class="mb-0"><%= link_to 'メッセージ', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: :post, class: "btn btn-success" %> <%= render 'follow_form', user: user %></p>
+        <% if user.icon_image.present? %>
+          <%= image_tag user.icon_image , :size => '100x100', class: "user_center"%>
+        <% else %>
+          <%= image_tag 'noimage.jpg' , :size => '100x100', class: "user_center" %>
+        <% end %>
+        <h5 class="card-title"><%= link_to user.name, user, class: "font" %></h5>
+        <p class="card-text">
+          <% if user.user_comment.present? %>
+            <div class="balloon1-left"><%= user.user_comment %></div>
+          <% else %>
+            <div class="balloon1-left">ユーザーからのコメントはありません</div>
+          <% end %>
+        </p>
+        <%# if display_message_btn?(current_user, user) %>
+        <% if current_user.display_message_btn?(user) %>
+        <p class="mb-0"><%= link_to 'メッセージ', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: :post, class: "btn btn-success" %>
+          <% end %>
+          <%= render 'follow_form', user: user %></p>
 
       </div><!-- /.card-body -->
     </div><!-- /.card -->

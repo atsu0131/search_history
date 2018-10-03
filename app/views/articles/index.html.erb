@@ -18,7 +18,7 @@
                 <% if article.ar_stock.present? %>
                   <% if article.ar_stock > 0 %>
                     <div class="stock">在庫あり</div>
-                    <div class="buttons text-center"><%= link_to '購入する', article_path(article.id) %></div>
+                    <div class="buttons text-center"><%= link_to '購入する', article_path(article.id), class: "btn btn-info" %></div>
                   <% else %>
                     <div class="stock">在庫なし</div>
                   <% end %>
@@ -29,6 +29,6 @@
       </div>
     <% end %>
 
-  <%= link_to '登録する', new_article_path %>
+  <%= link_to '登録する', new_article_path, class: "btn btn-primary"%>
 
   <div class="blank"></div>
