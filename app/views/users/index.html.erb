@@ -28,6 +28,11 @@
         相互フォローでメッセージを送ることができます。
         <% end %>
           <%= render 'follow_form', user: user %></p>
+          <% if current_user.followed?(user) %>
+          フォローされています
+          <% else %>
+          フォローされていません
+          <% end %>
 
       </div><!-- /.card-body -->
     </div><!-- /.card -->
