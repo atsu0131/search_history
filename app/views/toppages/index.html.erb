@@ -66,10 +66,23 @@
       <span class="rank_i">ランキングをみる</span>
     </div>
   </section>
-
-
-
-</div>
+  <h3 class="text_center">今日のピックアップ</h3>
+  <section class="fadein1">
+  <% @randoms.each do |random| %>
+  <div class="card text-white bg-primary col-md-6 col-sm-6 col-xs-12">
+    <div class="card-body">
+      <h5 class="card-title"><%= link_to random.ca_name , castle_path(random), :style=>"color:white;" %></h5>
+      <p class="card-text">
+      <% if random.ca_top_image.present? %>
+        <%= image_tag random.ca_top_image , :size => '300x200' %>
+      <% else %>
+        <%= image_tag 'noimage.jpg' , :size => '300x200' %>
+      <% end %></p>
+      <%= random.ca_info %>
+    </div>
+  </div>
+   <% end %>
+</section>
 
 <script>
 
