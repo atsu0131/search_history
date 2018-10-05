@@ -1,4 +1,9 @@
+<div class="text-center">
 <h1>Sign up</h1>
+</div>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
 
 <% if @user.errors.any? %>
   <div id="error_explanation">
@@ -12,40 +17,41 @@
 <% end %>
 
   <%= form_with(model: @user, local: true) do |f| %>
-    <div class="user">
+    <div class="form-group">
       <%= f.label :name %>
-      <%= f.text_field :name %>
+      <%= f.text_field :name, class: 'form-control'  %>
     </div>
 
-    <div class="user">
+    <div class="form-group">
       <%= f.label :email %>
-      <%= f.email_field :email %>
+      <%= f.email_field :email, class: 'form-control'   %>
     </div>
 
-    <div class="user">
+    <div class="form-group">
       <%= f.label :age %>
-      <%= f.text_field :age, in: 18...100 %>
+      <%= f.text_field :age, in: 18...100, class: 'form-control'   %>
     </div>
 
-    <div class="user">
+    <div class="form-group">
       <%= f.label :sex %>
       <%= f.radio_button :publish,'男',  class: :rd %>男
       <%= f.radio_button :publish,'女',  class: :rd %>女
     </div>
 
-    <div class="user">
+    <div class="form-group">
       <%= f.label :password %>
-      <%= f.password_field :password %>
+      <%= f.password_field :password, class: 'form-control'   %>
     </div>
 
-    <div class="user">
+    <div class="form-group">
       <%= f.label :password_confirmation %>
-      <%= f.password_field :password_confirmation %>
+      <%= f.password_field :password_confirmation, class: 'form-control' %>
     </div>
 
-    <div class="user">
-      <%= f.submit "Create my account" %>
+    <div class="form-group">
+      <%= f.submit "Create my account", class: "btn btn-primary"%>
     </div>
 
   <% end %>
-
+  </div>
+</div>
