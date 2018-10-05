@@ -68,8 +68,9 @@
   </section>
   <h3 class="text_center">今日のピックアップ</h3>
   <section class="fadein1">
+  <div class="card-left">
   <% @randoms.each do |random| %>
-  <div class="card text-white bg-primary col-md-6 col-sm-6 col-xs-12">
+  <div class="card text-white bg-primary col-md-6 col-sm-6 col-xs-6">
     <div class="card-body">
       <h5 class="card-title"><%= link_to random.ca_name , castle_path(random), :style=>"color:white;" %></h5>
       <p class="card-text">
@@ -82,6 +83,7 @@
     </div>
   </div>
   <% end %>
+  </div>
 </section>
 
 <script>

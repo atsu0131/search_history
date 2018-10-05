@@ -1,21 +1,11 @@
 Rails.application.routes.draw do
 
   root to: 'toppages#index'
-
-  get 'relationships/create'
-
-  get 'relationships/destroy'
-
-  get 'users/index'
-
+  get 'toppages/index'
 
   get 'rankings/favorite'
 
-
-
   get 'comments/create'
-
-  get 'toppages/index'
 
   get 'okinawas/index'
 
@@ -34,10 +24,6 @@ Rails.application.routes.draw do
   get 'hokkaidos/index'
 
   get 'kantous/index'
-
-  get 'toppage/index'
-
-  get 'sessions/new'
 
   get 'maps/index'
   get 'maps/:id', to: 'maps#show', as: 'map'
@@ -58,6 +44,8 @@ Rails.application.routes.draw do
   resources :visits, only: [:create, :destroy]
 
   resources :relationships, only: [:create, :destroy]
+  get 'relationships/create'
+  get 'relationships/destroy'
 
   resources :conversations do
     resources :messages

@@ -1,7 +1,7 @@
-<div class="container_article_index">
-<h4>全国のご当地品を買うことができます</h4>
-<div class="article_top"></div>
+<body class="container_article_index">
+  <h4>全国のご当地品を買うことができます</h4>
 
+<div class="article_top"></div>
   <% @articles.each do |article| %>
       <div class="item">
         <div class="col-md-3 col-sm-4 col-xs-12">
@@ -33,5 +33,4 @@
   <%= link_to '登録する', new_article_path, class: "btn btn-primary"%>
 
   <div class="blank"></div>
-
-</div>
+</body>
