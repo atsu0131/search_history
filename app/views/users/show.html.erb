@@ -74,12 +74,12 @@
       </tr>
     </thead>
     <tbody>
-      <% @user.followers.each_with_index do |follower, index| %>
-      <tr>
-        <th scope="row"><%= index+1 %></th>
-        <td>
-          <%= link_to follower.name, follower %>
-        <% end %>
+      <% @user.following.each_with_index do |follow, index| %>
+    <tr>
+      <th scope="row"><%= index+1 %></th>
+      <td>
+        <%= link_to follow.name, follow %>
+      <% end %>
         <%= paginate @users %>
         </td>
       </tr>
@@ -96,11 +96,11 @@
     </tr>
   </thead>
   <tbody>
-    <% @user.following.each_with_index do |follow, index| %>
-    <tr>
-      <th scope="row"><%= index+1 %></th>
-      <td>
-        <%= link_to follow.name, follow %>
+      <% @user.followers.each_with_index do |follower, index| %>
+      <tr>
+        <th scope="row"><%= index+1 %></th>
+        <td>
+          <%= link_to follower.name, follower %>
       <% end %>
       <%= paginate @users %>
       </td>
