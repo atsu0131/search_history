@@ -20,13 +20,13 @@
           <% else %>
             <div class="balloon1-left">ユーザーのコメントはありません</div>
           <% end %>
-        </p>
-        <%# if display_message_btn?(current_user, user) %>
+        </p>        
         <% if current_user.display_message_btn?(user) %>
-        <p class="mb-0"><%= link_to 'メッセージ', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: :post, class: "btn btn-success" %>
+          <p class="mb-0"><%= link_to 'メッセージ', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: :post, class: "btn btn-success" %>
         <% else %>
         相互フォローでメッセージを送ることができます。
         <% end %>
+        
           <%= render 'follow_form', user: user %></p>
           <% if current_user.followed?(user) %>
           フォローされています

@@ -3,7 +3,7 @@ class User < ApplicationRecord
   validates :name, presence: true,length: { maximum: 30 }
   validates :email, presence: true, length: { maximum: 255 },
     format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
-  validates :age, inclusion: { in: 18..120 }
+  validates :age, inclusion: { in: 18..120, allow_blank: true}
     before_validation { email.downcase! }
     has_secure_password
       validates :password, presence: true, length: { minimum: 6 }
@@ -45,4 +45,18 @@ class User < ApplicationRecord
   def unfollow!(other_user)
     active_relationships.find_by(followed_id: other_user.id).destroy
   end
+
+    def self.find_for_google(auth)
+    user = User.find_by(email: auth.info.email
+      )
+    unless user
+      user = User.new(email: auth.info.email,
+                      password: "aaaaaa",
+                      name: auth.info.name,
+                                 )
+    end
+    user.save
+    user
+  end
+
 end
