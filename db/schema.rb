@@ -18,14 +18,14 @@ ActiveRecord::Schema.define(version: 20181002064537) do
   create_table "articles", force: :cascade do |t|
     t.string "ar_name"
     t.integer "ar_price"
+    t.string "ar_image"
     t.integer "ar_stock"
     t.integer "ar_pref"
     t.text "ar_info"
-    t.string "user_id"
-    t.string "castle_id"
+    t.integer "user_id"
+    t.integer "castle_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "ar_image"
   end
 
   create_table "blogs", force: :cascade do |t|

@@ -10,8 +10,14 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    @article = Article.create(params_set)
-    redirect_to articles_path
+    @article = Article.new(params_set)
+    @article.user_id = current_user.id
+    if @article.save!
+      redirect_to articles_path, notice: "作成しました！"
+    else
+      render 'new'
+    end
+
   end
 
   def show
@@ -19,9 +25,20 @@ class ArticlesController < ApplicationController
   end
 
   def edit
+    @article = Article.find(params[:id])
   end
 
   def update
+    @article = Article.find(params[:id])
+    if @article.update(params_set)
+      redirect_to articles_path,notice:"編集しました"
+    end
+  end
+
+  def destroy
+    @article = Article.find(params[:id])
+    @article.destroy
+    redirect_to articles_path,notice:"削除しました"
   end
 
 

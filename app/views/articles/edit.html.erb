@@ -1,0 +1,42 @@
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_with(model: @article, local: true) do |form| %>
+
+      <div class="form-group">
+        <%= form.label :ar_name,'品物：' %>
+        <%= form.text_field :ar_name, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :ar_image,'画像：' %>
+        <%= image_tag(@article.ar_image.url) if @article.ar_image.url %>
+        <%= form.file_field :ar_image %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :ar_price,'販売金額：' %>
+        <%= form.text_field :ar_price, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :ar_stock,'在庫：' %>
+        <%= form.text_field :ar_stock, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :ar_pref,'生産地：' %>
+        <%= form.text_field :ar_pref, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :ar_info,'概要：' %>
+        <%= form.text_field :ar_info, class: 'form-control' %>
+      </div>
+
+
+      <%= form.submit "送信", class: "btn btn-primary" %>
+    <% end %>
+  <%= link_to '戻る', articles_path, class: "btn btn-success" %>
+  </div>
+</div>
