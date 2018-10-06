@@ -23,7 +23,7 @@ body{
    -webkit-animation-play-state: paused;
 }
 
-.left{
+.left_tag{
   position:absolute;
   height:10px;
   width:40px;
@@ -36,7 +36,7 @@ body{
   -webkit-animation: leftArrow 0.5s 1s infinite ease-out alternate;
 }
 
-.right{
+.right_tag{
   position:absolute;
   height:10px;
   width:40px;
