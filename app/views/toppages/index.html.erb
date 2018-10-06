@@ -35,6 +35,7 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.1/js/swiper.min.js"></script>
 
+<div class="text-center">
 <div class="button_hide">
   <section class="fadein1">
     <% if logged_in? %>
@@ -45,6 +46,8 @@
     <% end %>
   </section>
 </div>
+</div>
+
 
   <div class="color_blank"></div>
   <div class="color_back">
@@ -70,11 +73,11 @@
       <span class="rank_i">ランキングをみる</span>
     </div>
   </section>
-  <h3 class="text_center">今日のピックアップ</h3>
+  <h3 class="text-center">今日のピックアップ</h3>
   <section class="fadein1">
-  <div class="card-left">
+  <div class="card-left1">
   <% @randoms.each do |random| %>
-  <div class="card text-white bg-primary col-md-6 col-sm-6 col-xs-6">
+  <div class="card1 text-white bg-primary col-md-4 col-sm-4 col-xs-4">
     <div class="card-body">
       <h5 class="card-title"><%= link_to random.ca_name , castle_path(random), :style=>"color:white;" %></h5>
       <p class="card-text">
