@@ -18,6 +18,12 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
   end
 
+  def edit
+  end
+
+  def update
+  end
+
 
   # payを private よりも前に追加
   def pay
