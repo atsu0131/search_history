@@ -67,4 +67,6 @@
   <%= form.submit("送信") %>
 <% end %>
 
+    <%= link_to "この城を削除する", castle_path(@castle.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %>
+
 <div class="blank"></div>

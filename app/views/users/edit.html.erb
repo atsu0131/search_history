@@ -58,6 +58,8 @@
   <% end %>
   </div>
 </div>
-
+  <div class="text-center">
+    <%= link_to "アカウントを削除する", user_path(@user.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %>
+  </div>
   <div class="blank"></div>
 
