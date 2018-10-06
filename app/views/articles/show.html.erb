@@ -1,14 +1,16 @@
-<div class="article_menu">商品名</div>
-<p class="item-title"><%= @article.ar_name %></p>
-<div class="price"><%= @article.ar_price %>円</div>
-  <% if @article.ar_image.present? %>
-    <%= image_tag @article.ar_image , :size => '400x300' %>
-  <% else %>
-    <%= image_tag 'noimage.jpg', :size => "400x300"%>
+<div class="text-center">
+  <div class="article_menu"><h2>商品名</h2></div>
+  <p class="item-title"><h3><%= @article.ar_name %></h3></p>
+  <div class="price"><h4><%= @article.ar_price %>円</h4></div>
+    <% if @article.ar_image.present? %>
+      <%= image_tag @article.ar_image , :size => '400x300' %>
+    <% else %>
+      <%= image_tag 'noimage.jpg', :size => "400x300"%>
+    <% end %>
+
+  <%= form_tag(action: :pay, method: :post) do %>
+     <script type="text/javascript" src="https://checkout.pay.jp" class="payjp-button" data-key="公開キー"></script>
   <% end %>
 
-<%= form_tag(action: :pay, method: :post) do %>
-   <script type="text/javascript" src="https://checkout.pay.jp" class="payjp-button" data-key="公開キー"></script>
-<% end %>
-
   <%= link_to '戻る', articles_path, class: "btn btn-outline-primary" %>
+</div>
