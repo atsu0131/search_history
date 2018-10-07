@@ -1,42 +1,44 @@
 <%= form_with(model: @quiz, local: true) do |form| %>
 
-  <div class="q_title">
+  <div class="form-group">
     <%= form.label :q_title,'タイトル：' %>
-    <%= form.text_field :q_title %>
+    <%= form.text_field :q_title, class: 'form-control' %>
   </div>
 
-  <div class="q_content">
+  <div class="form-group">
     <%= form.label :q_content,'内容：' %>
-    <%= form.text_field :q_content %>
+    <%= form.text_field :q_content, class: 'form-control' %>
   </div>
 
-  <div class="q_answer1">
+  <div class="form-group">
     <%= form.label :q_answer1,'回答欄1：' %>
-    <%= form.text_field :q_answer1 %>
+    <%= form.text_field :q_answer1, class: 'form-control' %>
   </div>
 
-    <div class="q_answer2">
+    <div class="form-group">
     <%= form.label :q_answer2,'回答欄2：' %>
-    <%= form.text_field :q_answer2 %>
+    <%= form.text_field :q_answer2, class: 'form-control' %>
   </div>
 
-    <div class="q_answer3">
+    <div class="form-group">
     <%= form.label :q_answer3,'回答欄3：' %>
-    <%= form.text_field :q_answer3 %>
+    <%= form.text_field :q_answer3, class: 'form-control' %>
   </div>
 
-    <div class="q_answer4">
+    <div class="form-group">
     <%= form.label :q_answer4,'回答欄4：' %>
-    <%= form.text_field :q_answer4 %>
+    <%= form.text_field :q_answer4, class: 'form-control' %>
   </div>
 
-  <div class="q_correct">
+  <div class="form-group">
     <%= form.label :q_correct,'答え：' %>
-    <%= form.text_field :q_correct %>
+    <%= form.text_field :q_correct, class: 'form-control' %>
   </div>
 
 
-  <%= form.submit("送信") %>
+  <%= form.submit "送信", class: "btn btn-primary" %>
 <% end %>
 
   <%= link_to '一覧に戻る', quizzes_path %>
+
+<div class="blank"></div>
