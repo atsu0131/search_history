@@ -49,20 +49,33 @@ function initMap() {
     <ul class="content">
       <li>
         <table>
-          <tr>
-            <th>城名</th>
-          </tr>
           <% @castles.each do |castle| %>
           <tr>
-            <td><%= castle.ca_name %></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td><%= link_to '詳細', castle_path(castle.id)  %></td>
+<!--             <td class="panel_arrange"> -->
+              <td class="panel panel-default col-md-6 col-sm-6 col-xs-12">
+                <div class="panel-heading">
+                  <h3 class="panel-title"><%= link_to castle.ca_name, castle_path(castle.id) %></h3>
+                  <div class="image_ca_rightcontent">
+                    <% if castle.ca_top_image.present? %>
+                    <%= image_tag castle.ca_top_image , :size => '100x100' %>
+                    <% else %>
+                    <%= image_tag 'noimage.jpg' , :size => '100x100' %>
+                    <% end %>
+                  </div>
+                </div>
+                <div class="panel-body">
+                  <div class="image_ca_leftcontent">
+                    <%= castle.ca_info %>
+                  </div>
+                </div>
+
+              </td>
+<!--             </td> -->
           </tr>
           <% end %>
         </table>
       </li>
+
       <li class="hide">
         <br>
         <h3>coming soon</h3>
@@ -76,6 +89,9 @@ function initMap() {
         <h3>coming soon</h3>
       </li>
     </ul>
+
+<div class="blank"></div>
+<div class="blank"></div>
 <div class="blank"></div>
 <script>
 $(function() {
