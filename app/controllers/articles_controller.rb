@@ -32,6 +32,8 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
     if @article.update(params_set)
       redirect_to articles_path,notice:"編集しました"
+    else
+      render 'edit'
     end
   end
 
