@@ -86,7 +86,7 @@
       <% else %>
         <%= image_tag 'noimage.jpg' , :size => '300x200' %>
       <% end %></p>
-      <%= random.ca_info %>
+      <%= truncate(random.ca_info , :length => 0)%>
     </div>
   </div>
   <% end %>

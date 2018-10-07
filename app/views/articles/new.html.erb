@@ -26,7 +26,7 @@
 
       <div class="form-group">
         <%= form.label :ar_pref,'生産地：' %>
-        <%= form.text_field :ar_pref, class: 'form-control' %>
+         <%= form.select :ar_pref, [["北海道", "北海道"], ["東北", "東北"], ["関東", "関東"], ["中部", "中部"], ["近畿", "近畿"], ["中国", "中国"], ["四国", "四国"], ["九州", "九州"], ["沖縄", "沖縄"], ["その他", "その他"]] ,class: "form-control" %>
       </div>
 
       <div class="form-group">
