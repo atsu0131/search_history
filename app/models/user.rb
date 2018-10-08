@@ -25,6 +25,8 @@ class User < ApplicationRecord
 
   has_many :articles, dependent: :destroy
 
+  has_many :quizzes
+
     #指定のユーザをフォローする
   def follow!(other_user)
     active_relationships.create!(followed_id: other_user.id)

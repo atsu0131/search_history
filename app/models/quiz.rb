@@ -4,4 +4,6 @@ class Quiz < ApplicationRecord
     validates :q_answer1, presence: true,length: { maximum: 50 }
     validates :q_answer2, presence: true,length: { maximum: 50 }
     validates :q_correct, presence: true,length: { maximum: 50 }
+
+    belongs_to :user
 end

@@ -27,6 +27,10 @@ $(function() {
 
   <div class="blank"></div>
     <%= link_to 'クイズを作成する', new_quiz_path %>
-      <%= link_to '一覧に戻る', quizzes_path %>
+    <%= link_to '一覧に戻る', quizzes_path %>
+  <% if @quiz.user_id == current_user.id %>
+    <%= link_to '編集', edit_quiz_path(@quiz.id) %>
+    <%= link_to '削除', quiz_path(@quiz.id),method: :delete, data: { confirm: '本当に削除していいですか？' } %>
+  <% end %>
 </body>
 </html>

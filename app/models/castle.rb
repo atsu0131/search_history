@@ -1,7 +1,7 @@
 class Castle < ApplicationRecord
   mount_uploader :ca_top_image, ImageUploader
   mount_uploader :ca_image, ImageUploader
-  mount_uploader :image, ImageUploader
+
 
   validates :ca_name,length: { maximum: 30 }
 
