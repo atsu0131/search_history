@@ -27,7 +27,7 @@
     <tr>
       <td><%= link_to '詳細', castle_path(castle.id) %></td>
       <td><%= link_to '編集', edit_castle_path(castle.id) %></td>
-      <td><%= link_to '削除', castle_path(castle.id),method: :delete, data: { confirm: '本当に削除していいですか？' } %></td>
+      <td><%= link_to '削除', castle,method: :delete, data: { confirm: '本当に削除していいですか？' } %></td>
     </tr>
   <% end %>
 </table>

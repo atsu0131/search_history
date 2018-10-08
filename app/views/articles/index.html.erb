@@ -16,7 +16,7 @@
               <%= image_tag 'noimage.jpg', :size => "100x100"%>
               <% end %>
             </div>
-            <div class="panel-body">
+            <div class="panel-body_article">
                 <p class="item-title"><%= article.ar_name %></p>
                 <p class="item-title"><%= truncate(article.ar_info , :length => 30)%></p>
                 <div class="price"><%= article.ar_price %>円</div>
@@ -29,8 +29,8 @@
                   <% end %>
                 <% end %>
                 <% if article.user_id == current_user.id %>
-                <td><%= link_to '編集', edit_article_path(article.id), class: "btn btn-primary" %></td>
-                <td><%= link_to '削除', article_path(article.id), method: :delete, data: { confirm: '本当に削除していいですか？' }, class: "btn btn-danger" %></td>
+                <span><%= link_to '編集', edit_article_path(article.id), class: "btn btn-primary" %></span>
+                <span><%= link_to '削除', article_path(article.id), method: :delete, data: { confirm: '本当に削除していいですか？' }, class: "btn btn-danger" %></span>
                 <% end %>
             </div>
           </div>

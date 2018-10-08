@@ -1,5 +1,5 @@
 class CastlesController < ApplicationController
-  before_action :require_user_logged_in,{only:[:index,:new,:show,:edit]}
+  before_action :require_user_logged_in,{only:[:index,:new,:show,:edit,:destroy]}
   def index
     @user = User.all
     @castles = Castle.all
@@ -55,6 +55,8 @@ class CastlesController < ApplicationController
 private
 
   def params_set
-    params.require(:castle).permit(:ca_name,:ca_top_image,:ca_image,:ca_comment,:ca_pref,:ca_info,:ca_owner,:ca_hp,:ca_loca,:ca_access,:ca_history,:map_id,:ca_top_image_cache, :ca_image_cache,:user_id)
+    params.require(:castle).permit(
+      :ca_name,:ca_top_image,:ca_image,:ca_comment,:ca_pref,:ca_info,:ca_owner,:ca_hp,:ca_loca,:ca_access,:ca_history,:map_id,:ca_top_image_cache, :ca_image_cache,:user_id
+      )
   end
 end
