@@ -12,7 +12,7 @@ class ArticlesController < ApplicationController
   def create
     @article = Article.new(params_set)
     @article.user_id = current_user.id
-    if @article.save!
+    if @article.save
       redirect_to articles_path, notice: "作成しました！"
     else
       render 'new'

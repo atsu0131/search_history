@@ -3,6 +3,8 @@ class Castle < ApplicationRecord
   mount_uploader :ca_image, ImageUploader
   mount_uploader :image, ImageUploader
 
+  validates :ca_name,length: { maximum: 30 }
+
   has_many :comments, dependent: :destroy
 
   has_many :favorites, dependent: :destroy
