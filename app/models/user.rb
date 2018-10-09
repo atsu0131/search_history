@@ -55,7 +55,7 @@ class User < ApplicationRecord
       )
     unless user
       user = User.new(email: auth.info.email,
-                      password: "aaaaaa",
+                      password: "aAXnOa",
                       name: auth.info.name,
                                  )
     end

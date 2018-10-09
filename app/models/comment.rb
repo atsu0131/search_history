@@ -1,4 +1,5 @@
 class Comment < ApplicationRecord
+  validates :content, presence: true
   mount_uploader :image, ImageUploader
   paginates_per 5
 

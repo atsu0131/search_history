@@ -13,7 +13,7 @@
 <tbody>
 <tr>
 <td class="title_quiz"><%= quiz.q_title %></td>
-<td class="content_quiz"><%= quiz.q_content %></td>
+<td class="content_quiz"><%= truncate(quiz.q_content , :length => 15)%></td>
 <td class="answer_quiz"><%= link_to '回答する', quiz_path(quiz.id), class:"btn btn-info" %></td>
 
 </tr>
