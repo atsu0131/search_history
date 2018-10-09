@@ -7,7 +7,7 @@ class CreateArticles < ActiveRecord::Migration[5.1]
       t.integer :ar_stock
       t.integer :ar_pref
       t.text :ar_info
-      t.integer :user_id
+      t.string :user_id
       t.integer :castle_id
 
       t.timestamps
