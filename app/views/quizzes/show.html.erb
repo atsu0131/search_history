@@ -26,11 +26,15 @@ $(function() {
 </div>
 
   <div class="blank"></div>
+  <div class="quiz_create">
     <%= link_to 'クイズを作成する', new_quiz_path %>
     <%= link_to '一覧に戻る', quizzes_path %>
-  <% if @quiz.user_id == current_user.id %>
-    <%= link_to '編集', edit_quiz_path(@quiz.id) %>
-    <%= link_to '削除', quiz_path(@quiz.id),method: :delete, data: { confirm: '本当に削除していいですか？' } %>
-  <% end %>
+  </div>
+  <div class="quiz_create">
+<%# if @quiz.user_id == current_user.id %>
+    <%= link_to '編集', edit_quiz_path(@quiz.id),class: "btn btn-primary" %>
+    <%= link_to '削除', quiz_path(@quiz.id),method: :delete, data: { confirm: '本当に削除していいですか？' },class: "btn btn-danger" %>
+<%# end %>
+  </div>
 </body>
 </html>
