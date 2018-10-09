@@ -1,6 +1,7 @@
 <body class="container_user_index">
 <h2>ユーザー一覧</h2>
 
+<div class="conteiner">
 <% @users.each do |user| %>
   <% if user.id != current_user.id %>
 
@@ -41,6 +42,8 @@
   </div>
   <% end %>
 <% end %>
+</div>
 <div class="blank"></div>
+<div class="blank_bottom"></div>
 </body>
 
