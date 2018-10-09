@@ -19,7 +19,7 @@
             </div>
             <div class="panel-body_article">
                 <p class="item-title"><%= article.ar_name %></p>
-                <p class="item-title"><%= truncate(article.ar_info , :length => 30)%></p>
+                <div class="item-content"><%= truncate(article.ar_info , :length => 30)%></div>
                 <div class="price"><%= article.ar_price %>円</div>
                 <% if article.ar_stock.present? %>
                   <% if article.ar_stock > 0 || article.ar_stock == nil %>
