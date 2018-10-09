@@ -7,7 +7,7 @@
 
 <% if @user.errors.any? %>
   <div id="error_explanation">
-    <h2><%= pluralize(@user.errors.count, "error") %> prohibited this @user from being saved:</h2>
+    <h2><%= pluralize(@user.errors.count, "error") %> 件のエラーが発生しました</h2>
     <ul>
     <% @user.errors.full_messages.each do |message| %>
       <li><%= message %></li>
@@ -16,6 +16,7 @@
   </div>
 <% end %>
 
+<div class="form_new">
   <%= form_with(model: @user, local: true) do |f| %>
     <div class="form-group">
       <%= f.label :name %>
@@ -53,5 +54,6 @@
     </div>
 
   <% end %>
+</div>
   </div>
 </div>
