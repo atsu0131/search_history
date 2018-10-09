@@ -6,37 +6,39 @@
 
 
   <div class="col-md-3 col-sm-3 col-xs-6 ">
-    <div class="card img-thumbnail">
+    <div class="user_index">
+      <div class="card img-thumbnail">
 
-      <div class="card-body px-2 py-3">
-        <% if user.icon_image.present? %>
-          <%= image_tag user.icon_image , :size => '100x100', class: "user_center"%>
-        <% else %>
-          <%= image_tag 'noimage.jpg' , :size => '100x100', class: "user_center" %>
-        <% end %>
-        <h5 class="card-title"><%= link_to user.name, user, class: "font" %></h5>
-        <p class="card-text">
-          <% if user.user_comment.present? %>
-            <div class="balloon1-left"><%= user.user_comment %></div>
+        <div class="card-body px-2 py-3">
+          <% if user.icon_image.present? %>
+            <%= image_tag user.icon_image , :size => '100x100', class: "user_center"%>
           <% else %>
-            <div class="balloon1-left">ユーザーのコメントはありません</div>
+            <%= image_tag 'noimage.jpg' , :size => '100x100', class: "user_center" %>
           <% end %>
-        </p>
-        <% if current_user.display_message_btn?(user) %>
-          <p class="mb-0"><%= link_to 'メッセージ', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: :post, class: "btn btn-success" %>
-        <% else %>
-        相互フォローでメッセージを送ることができます。
-        <% end %>
+          <h5 class="card-title"><%= link_to user.name, user, class: "font" %></h5>
+          <p class="card-text">
+            <% if user.user_comment.present? %>
+              <div class="balloon1-left"><%= user.user_comment %></div>
+            <% else %>
+              <div class="balloon1-left">ユーザーのコメントはありません</div>
+            <% end %>
+          </p>
+          <% if current_user.display_message_btn?(user) %>
+            <p class="mb-0"><%= link_to 'メッセージ', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: :post, class: "btn btn-success" %>
+          <% else %>
+          相互フォローでメッセージを送ることができます。
+          <% end %>
 
-          <%= render 'follow_form', user: user %></p>
-          <% if current_user.followed?(user) %>
-          フォローされています
-          <% else %>
-          フォローされていません
-          <% end %>
-      </div><!-- /.card-body -->
-    </div><!-- /.card -->
-  </div><!-- /.col-sm-6.col-md-3 -->
+            <%= render 'follow_form', user: user %></p>
+            <% if current_user.followed?(user) %>
+            フォローされています
+            <% else %>
+            フォローされていません
+            <% end %>
+        </div><!-- /.card-body -->
+      </div><!-- /.card -->
+    </div>
+  </div>
   <% end %>
 <% end %>
 <div class="blank"></div>
