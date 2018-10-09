@@ -31,10 +31,10 @@ $(function() {
     <%= link_to '一覧に戻る', quizzes_path %>
   </div>
   <div class="quiz_create">
-<%# if @quiz.user_id == current_user.id %>
+<% if @quiz.user_id == current_user.id %>
     <%= link_to '編集', edit_quiz_path(@quiz.id),class: "btn btn-primary" %>
     <%= link_to '削除', quiz_path(@quiz.id),method: :delete, data: { confirm: '本当に削除していいですか？' },class: "btn btn-danger" %>
-<%# end %>
+<% end %>
   </div>
 </body>
 </html>

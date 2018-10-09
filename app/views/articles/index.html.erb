@@ -5,6 +5,7 @@
     </div>
 
 <div class="article_top"></div>
+  <div class="article_content">
   <% @articles.each do |article| %>
       <div class="item">
         <div class="col-md-3 col-sm-4 col-xs-12">
@@ -20,23 +21,24 @@
                 <p class="item-title"><%= article.ar_name %></p>
                 <p class="item-title"><%= truncate(article.ar_info , :length => 30)%></p>
                 <div class="price"><%= article.ar_price %>円</div>
-                <% if article.ar_stock.present? %>
-                  <% if article.ar_stock > 0 || article.ar_stock == nil %>
+                <%# if article.ar_stock.present? %>
+                  <%# if article.ar_stock > 0 || article.ar_stock == nil %>
                     <div class="stock">在庫あり</div>
                     <div class="buttons text-center"><%= link_to '購入する', article_path(article.id), class: "btn btn-info" %></div>
-                  <% else %>
+                  <%# else %>
                     <div class="stock">在庫なし</div>
-                  <% end %>
-                <% end %>
-                <% if article.user_id == current_user.id %>
+                  <%# end %>
+                <%# end %>
+                <%# if article.user_id == current_user.id %>
                 <span><%= link_to '編集', edit_article_path(article.id), class: "btn btn-primary" %></span>
                 <span><%= link_to '削除', article_path(article.id), method: :delete, data: { confirm: '本当に削除していいですか？' }, class: "btn btn-danger" %></span>
-                <% end %>
+                <%# end %>
             </div>
           </div>
         </div>
       </div>
     <% end %>
+  </div>
   <div class="blank"></div>
 
 <div class="article_top"></div>
