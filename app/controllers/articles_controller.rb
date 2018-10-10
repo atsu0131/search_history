@@ -55,8 +55,9 @@ class ArticlesController < ApplicationController
     redirect_to @article, notice: 'ありがとうございました。'
   end
 
-private
-    def params_set
+  private
+
+  def params_set
     params.require(:article).permit(:ar_name,:ar_top_image,:ar_price,:ar_stock,:ar_pref,:ar_info,:user_id,:castle_id)
   end
 end
