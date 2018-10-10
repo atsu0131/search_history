@@ -20,9 +20,10 @@
         <%= form.text_field :ar_name, class: 'form-control' %>
       </div>
 
+
       <div class="form-group">
         <%= form.label :ar_top_image,'画像：' %>
-        <%= image_tag(@article.ar_image.url) if @article.ar_image.url %>
+        <%= image_tag(@article.ar_top_image.url) if @article.ar_top_image.url %>
         <%= form.file_field :ar_top_image %>
       </div>
 
