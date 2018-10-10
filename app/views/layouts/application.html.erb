@@ -14,52 +14,50 @@
 <div data-turbolinks="false">
   <nav class="navbar navbar-inverse">
     <div  class="container">
-    <ul class="nav  navbar-nav  ">
-      <li  class="active">
-        <a class="navbar-brand" href="/toppages/index">
-          レキタン！
-        </a>
-      </li>
-      <% if logged_in? %>
-        <li  class="dropdown">
-          <a href="#"  class="dropdown-toggle" data-toggle="dropdown"  role="button" aria-expanded="false">SERVICE<span  class="caret"></span></a>
-          <ul  class="dropdown-menu" role="menu">
-            <li><%= link_to "maps", maps_index_path %></li>
-            <li><%= link_to "ranking", rankings_favorite_path %></li>
-            <li><%= link_to "Profile", user_path(current_user.id) %></li>
-            <li  class="divider"></li>
-            <li><%= link_to "purchase", articles_path %></li>
-            <li  class="divider"></li>
-            <li><%= link_to "quiz", quizzes_path %></li>
-          </ul>
+      <ul class="nav  navbar-nav  ">
+        <li  class="active">
+          <a class="navbar-brand" href="/toppages/index">
+            レキタン！
+          </a>
         </li>
-          <li><%= link_to "alluser", users_path %></li>
-          <li class="right_float"><%= link_to "Logout", session_path(current_user.id), method: :delete ,data: { confirm: '本当にログアウトしていいですか？' }%></li>
-      <% else %>
-        <li><%= link_to "Sign up", new_user_path %></li>
-        <li><%= link_to "Login", new_session_path %></li>
-      <% end %>
-    </ul>
+        <% if logged_in? %>
+          <li  class="dropdown">
+            <a href="#"  class="dropdown-toggle" data-toggle="dropdown"  role="button" aria-expanded="false">SERVICE<span  class="caret"></span></a>
+            <ul  class="dropdown-menu" role="menu">
+              <li><%= link_to "maps", maps_index_path %></li>
+              <li><%= link_to "ranking", rankings_favorite_path %></li>
+              <li><%= link_to "Profile", user_path(current_user.id) %></li>
+              <li  class="divider"></li>
+              <li><%= link_to "purchase", articles_path %></li>
+              <li  class="divider"></li>
+              <li><%= link_to "quiz", quizzes_path %></li>
+            </ul>
+          </li>
+            <li><%= link_to "alluser", users_path %></li>
+            <li class="right_float"><%= link_to "Logout", session_path(current_user.id), method: :delete ,data: { confirm: '本当にログアウトしていいですか？' }%></li>
+        <% else %>
+          <li><%= link_to "Sign up", new_user_path %></li>
+          <li><%= link_to "Login", new_session_path %></li>
+        <% end %>
+      </ul>
+    </div>
+  </nav>
+</div>
 
   <script type="text/javascript">
   function gate(){
-     // ▼ユーザの入力を求める
-     var UserInput = prompt("パスワードを入力して下さい:","");
+    // ▼ユーザの入力を求める
+    var UserInput = prompt("パスワードを入力して下さい:","");
 
-     if( "castle" == UserInput ) {
-        // ▼入力内容からファイル名を生成して移動
-        window.location.href = '/castles/new';
-     }
-     else{
+    if( "castle" == UserInput ) {
+      // ▼入力内容からファイル名を生成して移動
+      window.location.href = '/castles/new';
+    }
+    else{
       window.location.href = '/toppages/index';
-     }
+    }
   }
   </script>
-
-  		</div>
-  	</div>
-  </nav>
-</div>
 
   <%= yield %>
     <footer>
@@ -75,5 +73,4 @@
     </footer>
 
   </body>
-
 </html>
