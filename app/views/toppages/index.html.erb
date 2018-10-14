@@ -10,10 +10,36 @@
     <!-- Additional required wrapper -->
     <div class="swiper-wrapper">
         <!-- Slides -->
-        <div class="swiper-slide"><%= image_tag 'himeji.jpg', :size => "600x400"%></div>
-        <div class="swiper-slide"><%= image_tag 'inuyama.jpg', :size => "600x400"%></div>
-        <div class="swiper-slide"><%= image_tag 'matsumoto.jpg', :size => "600x400"%></div>
-        <div class="swiper-slide"><%= image_tag 'nagoya.jpg', :size => "600x400"%></div>
+        <% @randoms.each do |random| %>
+        <div class="swiper-slide">
+          <% if random.ca_top_image.present? %>
+            <%= link_to image_tag(random.ca_top_image, :size => '600x400') , castle_path(random) %>
+          <% else %>
+            <%= image_tag 'noimage.jpg' , :size => '600x400' %>
+          <% end %>
+        </div>
+        <div class="swiper-slide">
+          <% if random.ca_top_image.present? %>
+            <%= link_to image_tag(random.ca_top_image, :size => '600x400') , castle_path(random) %>
+          <% else %>
+            <%= image_tag 'noimage.jpg' , :size => '600x400' %>
+          <% end %>
+        </div>
+        <div class="swiper-slide">
+          <% if random.ca_top_image.present? %>
+            <%= link_to image_tag(random.ca_top_image, :size => '600x400') , castle_path(random) %>
+          <% else %>
+            <%= image_tag 'noimage.jpg' , :size => '600x400' %>
+          <% end %>
+        </div>
+        <div class="swiper-slide">
+          <% if random.ca_top_image.present? %>
+            <%= link_to image_tag(random.ca_top_image, :size => '600x400') , castle_path(random) %>
+          <% else %>
+            <%= image_tag 'noimage.jpg' , :size => '600x400' %>
+          <% end %>
+        </div>
+        <% end %>
     </div>
     <!-- If we need pagination -->
     <div class="swiper-pagination"></div>
@@ -83,7 +109,6 @@
       <p class="card-text">
       <% if random.ca_top_image.present? %>
         <%= link_to image_tag(random.ca_top_image, :size => '300x200') , castle_path(random) %>
-
       <% else %>
         <%= image_tag 'noimage.jpg' , :size => '300x200' %>
       <% end %></p>
@@ -95,9 +120,6 @@
 </section>
 
 <script>
-
-
-
 var mySwiper = new Swiper ('.swiper-container', {
   loop: true,
   slidesPerView: 2,
@@ -108,13 +130,11 @@ var mySwiper = new Swiper ('.swiper-container', {
   nextButton: '.swiper-button-next',
   prevButton: '.swiper-button-prev'
 })
-
 $(function(){
   $('slideshow').each(function(){
     var $slides = $(this).find('image_tag'),
     slideCount = $slides.length,
     currentIndex = 0;
-
   $slides.eq(currentIndex).fadeIn();
   setInterval(showNextSlide, 7500);
   function showNextSlide(){
@@ -125,7 +145,6 @@ $(function(){
   }
   });
 });
-
 $(function(){
     $(window).scroll(function (){
       $('.fadein1').each(function(){
@@ -138,7 +157,6 @@ $(function(){
         });
     });
 });
-
   $('.slider').slick({
     autoplay:true,
     autoplaySpeed:2000,
@@ -146,6 +164,4 @@ $(function(){
     slidesToShow:2,
     slidesToScroll:2
   });
-
-
 </script>
