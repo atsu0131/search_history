@@ -82,7 +82,8 @@
       <h5 class="card-title"><%= link_to random.ca_name , castle_path(random), :style=>"color:white;" %></h5>
       <p class="card-text">
       <% if random.ca_top_image.present? %>
-        <%= image_tag random.ca_top_image , :size => '300x200' %>
+        <%= link_to image_tag(random.ca_top_image, :size => '300x200') , castle_path(random) %>
+
       <% else %>
         <%= image_tag 'noimage.jpg' , :size => '300x200' %>
       <% end %></p>
