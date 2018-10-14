@@ -14,7 +14,7 @@ class User < ApplicationRecord
 
   has_many :favorites, dependent: :destroy
   has_many :favorite_castles, through: :favorites, source: :castle
-  has_many :castles, dependent: :destroy
+  has_many :castles
 
 
   has_many :visits, dependent: :destroy
