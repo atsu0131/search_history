@@ -1,18 +1,21 @@
 class User < ApplicationRecord
+  has_many :comments, dependent: :destroy
+  has_many :messages, dependent: :destroy
+
   mount_uploader :icon_image, ImageUploader
   validates :name, presence: true,length: { maximum: 30 }
   validates :email, presence: true, length: { maximum: 255 },
     format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
   validates :age, inclusion: { in: 18..120, allow_blank: true}
-    before_validation { email.downcase! }
-    has_secure_password
-      validates :password, presence: true, length: { minimum: 6 }
+  before_validation { email.downcase! }
+  has_secure_password
 
-      has_many :favorites, dependent: :destroy
-      has_many :favorite_castles, through: :favorites, source: :castle
-      has_many :castles
+  validates :password, presence: true, length: { minimum: 6 }
 
-      has_many :comments, dependent: :destroy
+  has_many :favorites, dependent: :destroy
+  has_many :favorite_castles, through: :favorites, source: :castle
+  has_many :castles, dependent: :destroy
+
 
   has_many :visits, dependent: :destroy
   has_many :visit_castles, through: :visits, source: :castle
