@@ -1,5 +1,6 @@
 class Comment < ApplicationRecord
-  validates :content, presence: true
+  validate :image_or_content
+
   mount_uploader :image, ImageUploader
   paginates_per 5
 
@@ -7,4 +8,7 @@ class Comment < ApplicationRecord
 
   belongs_to :user
 
+  def image_or_content
+    errors.add(:content, "もしくはimageのどちらかを入れてください") if image.url.blank? && content.blank?
+  end
 end
