@@ -21,7 +21,7 @@ class UsersController < ApplicationController
     @favorites_castles = @user.favorite_castles
     @visits_castles = @user.visit_castles
     @comments = Comment.all
-    @users = User.all
+    # @users = User.all
     @users = User.page(params[:page]).per(5)
     @favorites = Favorite.all
     @visits = Visit.all
