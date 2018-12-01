@@ -43,6 +43,15 @@ gem 'selenium-webdriver'
 gem 'pry-rails'
 gem 'better_errors'
 gem 'binding_of_caller'
+gem 'spring'
+gem "rspec-rails", "~> 3.7"
+gem 'spring-commands-rspec'
+gem "factory_bot_rails", "~> 4.11"
+gem 'faker'
+gem 'capybara', '~> 2.13'
+gem "database_cleaner"
+gem "launchy"
+gem 'selenium-webdriver'
 end
 
 group :development do
@@ -67,3 +76,4 @@ gem 'kaminari'
 gem 'omniauth-google-oauth2'
 gem 'dotenv-rails'
 gem 'fog'
+gem 'ransack'
